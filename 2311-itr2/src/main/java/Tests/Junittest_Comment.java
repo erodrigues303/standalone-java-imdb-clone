@@ -1,12 +1,15 @@
 package Tests;
 
-import static org.junit.Assert.*;
-
-import Models.*;
+import Models.Comment;
+import Models.Movie;
+import Models.Review;
+import Models.User;
 import org.junit.Before;
 import org.junit.Test;
+
 import java.util.List;
-import java.util.ArrayList;
+
+import static org.junit.Assert.*;
 
 public class Junittest_Comment {
 
