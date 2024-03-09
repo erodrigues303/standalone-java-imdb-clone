@@ -1,6 +1,8 @@
 package GUI;
 
+import Models.User;
 import Services.DbFunctions;
+import Services.UserService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +14,7 @@ public class LoginUI extends JFrame {
     private JPasswordField passwordField;
     private JButton loginButton;
     private JButton registerButton;
-
+    private UserService userService = new UserService();
     public LoginUI() {
         setTitle("Login");
         setSize(300, 200);
@@ -44,8 +46,11 @@ public class LoginUI extends JFrame {
     private void login() {
         String username = usernameField.getText();
         String password = new String(passwordField.getPassword());
-        if (authenticateUser(username, password)) {
+        User user = userService.authenticateUser(username, password);
+        if (user != null) {
             JOptionPane.showMessageDialog(this, "Login successful");
+            System.out.println(user.getUserId());
+            DashboardUI dash = new DashboardUI(user);
         } else {
             JOptionPane.showMessageDialog(this, "Invalid username or password");
         }
@@ -86,19 +91,14 @@ public class LoginUI extends JFrame {
     }
 
     private void registerUser(String username, String password, JDialog dialog) {
-        try (Connection conn = DbFunctions.connect()) {
-            PreparedStatement stmt = conn.prepareStatement("INSERT INTO users (username, password) VALUES (?, ?)");
-            stmt.setString(1, username);
-            stmt.setString(2, password);
-            int affectedRows = stmt.executeUpdate();
-            if (affectedRows > 0) {
+        User newUser = new User(username, password);
+
+            if(userService.createUser(newUser)) {
                 JOptionPane.showMessageDialog(this, "Registration successful");
                 dialog.dispose(); // Close the registration dialog after successful registration
             } else {
                 JOptionPane.showMessageDialog(this, "Registration failed");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
     }
 }

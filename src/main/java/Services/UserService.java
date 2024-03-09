@@ -26,6 +26,20 @@ CommentService commentService = new CommentService();
         }
     }
 
+    public User authenticateUser(String username, String password) {
+        try (Connection conn = DbFunctions.connect()) {
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE username = ? AND password = ?");
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+            ResultSet rs = stmt.executeQuery();
+            if(rs != null) return resultSetToUser(rs);
+            else return null;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     // Method to retrieve a User by username
     public User getUserByUsername(String username) {
         String sql = "SELECT * FROM Users WHERE username = ?";

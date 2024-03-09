@@ -27,6 +27,23 @@ public class MovieService {
         }
     }
 
+    public List<Movie> getMovieByName(String namePart) {
+        List<Movie> movies = new ArrayList<>();
+        String sql = "SELECT * FROM Movies WHERE title LIKE ?";
+        try (Connection conn = DbFunctions.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, "%" + namePart + "%"); // Use "%" for SQL wildcard matching
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Movie movie = resultSetToMovie(rs); // Use your existing method to create the movie object
+                movies.add(movie);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return movies;
+    }
+
 
 
     public Movie resultSetToMovie(ResultSet rs) throws SQLException {
@@ -43,5 +60,7 @@ public class MovieService {
         // Assuming you have a setId method
         return movie;
     }
+
+
 
 }

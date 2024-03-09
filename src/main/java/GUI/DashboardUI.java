@@ -8,16 +8,18 @@ import java.util.List;
 import Services.MovieManager;
 
 import Models.*;
+import Services.MovieService;
 import org.json.JSONException;
 
 public class DashboardUI extends JFrame {
     private final User user;
-    private final MovieManager movieManager;
-    private final JPanel contentPanel;
 
-    public DashboardUI(User user, MovieManager movieManager) {
+    private final JPanel contentPanel;
+    private MovieService movieService = new MovieService();
+
+    public DashboardUI(User user) {
         this.user = user;
-        this.movieManager = movieManager;
+
 
         setTitle("Dashboard");
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -65,16 +67,9 @@ public class DashboardUI extends JFrame {
     }
 
     private void searchMovies(String searchText) {
-        try {
-            List<Movie> searchResults = movieManager.searchMovies(searchText);
-            BrowseMovieUI browseMovieUI = new BrowseMovieUI(this.user);
-            browseMovieUI.displaySearchResults(searchResults);
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(this, "Error searching for movies: " + ex.getMessage(),
-                    "Search Error", JOptionPane.ERROR_MESSAGE);
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
+        List<Movie> searchResults = movieService.getMovieByName(searchText);
+        BrowseMovieUI browseMovieUI = new BrowseMovieUI(this.user);
+        browseMovieUI.displaySearchResults(searchResults);
     }
 
     private JPanel createRecentlyViewedPanel() {
