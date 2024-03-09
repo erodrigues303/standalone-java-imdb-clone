@@ -126,4 +126,6 @@ public class MovieUI extends JFrame {
         setTitle("Movie Details: " + movie.getTitle());
         populateMovieDetails();
     }
+
+
 }

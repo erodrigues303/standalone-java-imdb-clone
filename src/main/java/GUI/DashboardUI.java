@@ -5,16 +5,19 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
 import java.util.List;
-import Services.MovieManager;
+//import Services.MovieManager;
 
 import Models.*;
 import Services.MovieService;
 import org.json.JSONException;
 
-public class DashboardUI extends JFrame {
+public class DashboardUI extends JFrame{
+
+
     private final User user;
 
     private final JPanel contentPanel;
+    private JPanel recentlyViewedMoviesPanel;
     private MovieService movieService = new MovieService();
 
     public DashboardUI(User user) {
@@ -68,7 +71,7 @@ public class DashboardUI extends JFrame {
 
     private void searchMovies(String searchText) {
         List<Movie> searchResults = movieService.getMovieByName(searchText);
-        BrowseMovieUI browseMovieUI = new BrowseMovieUI(this.user);
+        BrowseMovieUI browseMovieUI = new BrowseMovieUI(this.user, this);
         browseMovieUI.displaySearchResults(searchResults);
     }
 
@@ -77,19 +80,25 @@ public class DashboardUI extends JFrame {
         JLabel recentlyViewedLabel = new JLabel("Recently Viewed Movies:");
         recentlyViewedLabel.setFont(new Font("Arial", Font.BOLD, 16));
         recentlyViewedPanel.add(recentlyViewedLabel, BorderLayout.NORTH);
-        JPanel recentlyViewedMoviesPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+
+        // Changed FlowLayout to BoxLayout that aligns components top to bottom
+        recentlyViewedMoviesPanel = new JPanel();
+        recentlyViewedMoviesPanel.setLayout(new BoxLayout(recentlyViewedMoviesPanel, BoxLayout.PAGE_AXIS));
+        populateRecentlyViewedMovies(); // Populate it using a separate method
+        recentlyViewedPanel.add(new JScrollPane(recentlyViewedMoviesPanel), BorderLayout.CENTER); // ScrollPane added to handle overflow
+        return recentlyViewedPanel;
+    }
+
+    public void populateRecentlyViewedMovies() {
+        recentlyViewedMoviesPanel.removeAll(); // Clear existing content
         for (Movie movie : user.getRecentlyViewed()) {
             JButton movieButton = new JButton(movie.getTitle());
-            movieButton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    JOptionPane.showMessageDialog(DashboardUI.this, "You clicked on " + movie.getTitle());
-                }
-            });
+            movieButton.addActionListener(e ->
+                    openMovieUI(movie));
             recentlyViewedMoviesPanel.add(movieButton);
         }
-        recentlyViewedPanel.add(recentlyViewedMoviesPanel, BorderLayout.CENTER);
-        return recentlyViewedPanel;
+        recentlyViewedMoviesPanel.revalidate();
+        recentlyViewedMoviesPanel.repaint();
     }
 
     private JPanel createFriendsPanel() {
@@ -110,5 +119,11 @@ public class DashboardUI extends JFrame {
         }
         friendsPanel.add(friendsListPanel, BorderLayout.CENTER);
         return friendsPanel;
+    }
+
+    public void openMovieUI(Movie movie) {
+        MovieUI movieUI = MovieUI.getInstance(movie, user);
+        movieUI.updateMovieDetails(movie);
+        movieUI.setVisible(true);
     }
 }

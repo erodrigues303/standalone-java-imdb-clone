@@ -10,14 +10,23 @@ import java.awt.event.MouseEvent;
 
 import Models.Movie;
 import Models.User;
+import Services.CommentService;
+import Services.MovieService;
+import Services.RecentlyViewdService;
+import Services.ReviewService;
 
 public class BrowseMovieUI extends JFrame {
     public final JPanel searchResultsPanel;
     private final ExecutorService executorService;
     private final User user;
+    private final DashboardUI dashboard;
 
-    public BrowseMovieUI(User user) {
+
+
+
+    public BrowseMovieUI(User user, DashboardUI dashboard) {
         this.user = user;
+        this.dashboard = dashboard;
         setTitle("Movie Search Results");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(600, 600);
@@ -33,7 +42,7 @@ public class BrowseMovieUI extends JFrame {
     public void displaySearchResults(List<Movie> searchResults) {
         for (Movie movie : searchResults) {
             executorService.execute(() -> addMoviePanel(movie));
-            System.out.println("movie done");
+
         }
     }
 
@@ -79,6 +88,9 @@ public class BrowseMovieUI extends JFrame {
         movieUI.updateMovieDetails(movie);
         movieUI.setVisible(true);
         this.user.addRecentlyViewed(movie);
+        this.dashboard.populateRecentlyViewedMovies();
+
+
     }
 
     private void loadImage(String imageUrl, JLabel imageLabel) {

@@ -119,5 +119,6 @@ public class Movie {
     }
 
     public void setId(int movieId) {
+        this.movieId = movieId;
     }
 }

@@ -1,9 +1,19 @@
 package Models;
 
+import Services.CommentService;
+import Services.MovieService;
+import Services.RecentlyViewdService;
+import Services.ReviewService;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class User {
+
+    MovieService movieService = new MovieService();
+    ReviewService reviewService = new ReviewService();
+    CommentService commentService = new CommentService();
+    RecentlyViewdService recentlyViewdService = new RecentlyViewdService();
     private int userId;
     private String username;
     private String password;
@@ -115,13 +125,33 @@ public class User {
     }
 
     public void addRecentlyViewed(Movie movie) {
+        // Find the index of the movie if it exists in the recently viewed list
+        int existingIndex = -1;
+        for (int i = 0; i < recentlyViewed.size(); i++) {
+            if (recentlyViewed.get(i).getMovieId() == movie.getMovieId()) {
+                existingIndex = i;
+                break;
+            }
+        }
+
+        // If the movie is already in the list, remove it
+        if (existingIndex != -1) {
+            recentlyViewed.remove(existingIndex);
+            // Assuming there is a method to remove the movie from the database as well
+            // recentlyViewedService.removeRecentlyViewedMovie(this, movie);
+        }
+
         // Add the new movie to the beginning of the list
         recentlyViewed.add(0, movie);
+        recentlyViewdService.addRecentlyViewedMovie(this, movie);
 
-        // Check if the list exceeds the maximum length of 5
-        if (recentlyViewed.size() > 5) {
-            // Remove the oldest movie (at index 5)
-            recentlyViewed.remove(5);
+        // Check if the list exceeds the maximum length of 10
+        while (recentlyViewed.size() > 10) {
+            // Get the last movie in the list
+            Movie lastMovie = recentlyViewed.get(recentlyViewed.size() - 1);
+            // Remove the last movie from the database and the list
+            recentlyViewdService.removeRecentlyViewedMovie(this, lastMovie);
+            recentlyViewed.remove(lastMovie);
         }
     }
 
