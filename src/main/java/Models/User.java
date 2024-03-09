@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User {
+    private int userId;
     private String username;
     private String password;
     private List<Movie> watchlist;
@@ -16,6 +17,7 @@ public class User {
 
     // Constructor
     public User(String username, String password) {
+        this.userId = 0;
         this.username = username;
         this.password = password;
         this.watchlist = new ArrayList<>();;
@@ -23,6 +25,24 @@ public class User {
         this.comments = new ArrayList<>();
         this.friendsList = new ArrayList<>();
         this.recentlyViewed = new ArrayList<>();
+    }
+
+    public User(String username){
+        this.userId = 0;
+        this.username = username;
+//        this.password = "friend";
+//        this.watchlist = new ArrayList<>();;
+//        this.reviews = new ArrayList<>();
+//        this.comments = new ArrayList<>();
+//        this.friendsList = new ArrayList<>();
+        this.recentlyViewed = new ArrayList<>();
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     // Getters and setters

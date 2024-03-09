@@ -48,11 +48,12 @@ public class MovieManager {
                             detailsJson.getString("Title"),
                             releaseYear,
                             detailsJson.getString("Plot"),
-                            detailsJson.getString("Genre")
+                            detailsJson.getString("Genre"),
+                            detailsJson.getDouble("imdbRating")
                     );
-                    movie.setRating(detailsJson.has("imdbRating") ? Double.parseDouble(detailsJson.getString("imdbRating")) : 0.0);
                     movie.setCoverImageUrl(detailsJson.getString("Poster"));
                     movies.add(movie);
+//                    movie.setMovieId(Integer.parseInt(imdbId));
                 }
             }
         }

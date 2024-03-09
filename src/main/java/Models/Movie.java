@@ -12,14 +12,37 @@ public class Movie {
     private List<Review> reviews;
     private String coverImageUrl;
 
-    public Movie(String title, int releaseYear, String description, String genre) {
+    private int movieId;
+
+    public Movie(String title, int releaseYear, String description, String genre, Double rating) {
         this.title = title;
         this.releaseYear = releaseYear;
         this.description = description;
         this.genre = genre;
-        this.rating = 0.0;
+        this.rating = rating;
         this.rating_list = new ArrayList<>();
         this.reviews = new ArrayList<>();
+        this.movieId = 0;
+    }
+
+    public Movie(String title, int releaseYear, String description, String genre, Double rating, String imgUrl) {
+        this.title = title;
+        this.releaseYear = releaseYear;
+        this.description = description;
+        this.genre = genre;
+        this.rating = rating;
+        this.coverImageUrl = imgUrl;
+        this.rating_list = new ArrayList<>();
+        this.reviews = new ArrayList<>();
+        this.movieId = 0;
+    }
+
+    public int getMovieId() {
+        return movieId;
+    }
+
+    public void setMovieId(int movieId) {
+        this.movieId = movieId;
     }
 
     public String getTitle() {
@@ -93,5 +116,8 @@ public class Movie {
 
     public String getCoverImageUrl() {
         return this.coverImageUrl;
+    }
+
+    public void setId(int movieId) {
     }
 }
