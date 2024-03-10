@@ -96,7 +96,8 @@ public class MovieService {
 
         String sql = "SELECT * FROM Movies WHERE rating > ? AND releaseYear BETWEEN ? AND ? " +
                 "AND (genre LIKE ? OR genre LIKE ?) " +
-                "ORDER BY rating DESC LIMIT 6";
+//                "ORDER BY rating DESC "+
+                "LIMIT 6";
 
 
         try (Connection conn = DbFunctions.connect();

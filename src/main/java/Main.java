@@ -1,8 +1,11 @@
+import GUI.Dashboard.Dashboard;
 import GUI.LoginUI;
 import Models.Movie;
+import Models.User;
 import Services.DbFunctions;
 //import Services.MovieManager;
 import Services.MovieService;
+import Services.UserService;
 import org.json.JSONException;
 
 import javax.swing.*;
@@ -12,9 +15,12 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
+        UserService us = new UserService();
+        User user = us.getUserByUsername("demo");
+                SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                new LoginUI();
+//                new LoginUI();
+                new Dashboard(user);
             }
         });
 

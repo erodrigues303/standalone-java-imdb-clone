@@ -8,23 +8,21 @@ import java.util.List;
 import java.util.concurrent.*;
 import java.awt.event.MouseEvent;
 
+import GUI.Dashboard.Dashboard;
+//import GUI.Dashboard.DashboardUI;
 import Models.Movie;
 import Models.User;
-import Services.CommentService;
-import Services.MovieService;
-import Services.RecentlyViewdService;
-import Services.ReviewService;
 
 public class BrowseMovieUI extends JFrame {
     public final JPanel searchResultsPanel;
     private final ExecutorService executorService;
     private final User user;
-    private final DashboardUI dashboard;
+    private final Dashboard dashboard;
 
 
 
 
-    public BrowseMovieUI(User user, DashboardUI dashboard) {
+    public BrowseMovieUI(User user, Dashboard dashboard) {
         this.user = user;
         this.dashboard = dashboard;
         setTitle("Movie Search Results");
@@ -88,9 +86,7 @@ public class BrowseMovieUI extends JFrame {
         movieUI.updateMovieDetails(movie);
         movieUI.setVisible(true);
         this.user.addRecentlyViewed(movie);
-        this.dashboard.populateRecentlyViewedMovies();
-
-
+        this.dashboard.getRecentlyViewedPanel().populateRecentlyViewedMovies();
     }
 
     private void loadImage(String imageUrl, JLabel imageLabel) {

@@ -4,17 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6384baf-0a21-4a12-b447-4736d7fd9193" name="Changes" comment="&quot;recentlyviewed component finished and connecteed to db&quot;">
+    <list default="true" id="e6384baf-0a21-4a12-b447-4736d7fd9193" name="Changes" comment="&quot;added center panel and movie recommendation system to dashboard, still need to fix layout&quot;">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Dash.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Dash.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/CenterPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/Dashboard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/FriendsPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/HeaderPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/RecentlyViewedPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/SearchPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/BrowseMovieUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/BrowseMovieUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/DashboardUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/DashboardUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/DashboardUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/DashboardUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/LoginUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/LoginUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Services/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/MovieService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/movie.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/movie.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/BrowseMovieUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/BrowseMovieUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/BrowseMovieUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/BrowseMovieUI$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/BrowseMovieUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/BrowseMovieUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/DashboardUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/DashboardUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/DashboardUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/DashboardUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/DashboardUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/DashboardUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Services/MovieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/MovieService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/DashboardUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/DashboardUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/DashboardUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/LoginUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/LoginUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/movie.db" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/movie.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,12 +66,21 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "249",
     "git-widget-placeholder": "itr2-Ahmed",
     "last_opened_file_path": "/Users/ahmedel-dib/Desktop/project2311/2311",
     "settings.editor.selected.configurable": "com.diffblue.cover.intellij"
   }
 }]]></component>
   <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="untitled" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="2311" />
       <method v="2">
@@ -129,8 +152,27 @@
       <option name="project" value="LOCAL" />
       <updated>1710028452840</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="&quot;added center panel and movie recommendation system to dashboard, still need to fix layout&quot;">
+      <option name="closed" value="true" />
+      <created>1710031781481</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1710031781481</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="&quot;added database connection and fixed loginUI to use the database. Fixed project structure&quot;" />
@@ -138,6 +180,18 @@
     <MESSAGE value="&quot;fixed main&quot;" />
     <MESSAGE value="    &quot;hooked up movie db, search functionality complete&quot;" />
     <MESSAGE value="&quot;recentlyviewed component finished and connecteed to db&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;recentlyviewed component finished and connecteed to db&quot;" />
+    <MESSAGE value="&quot;added center panel and movie recommendation system to dashboard, still need to fix layout&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;added center panel and movie recommendation system to dashboard, still need to fix layout&quot;" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

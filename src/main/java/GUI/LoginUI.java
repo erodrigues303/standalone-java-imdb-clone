@@ -1,12 +1,13 @@
 package GUI;
 
+import GUI.Dashboard.Dashboard;
+//import GUI.Dashboard.DashboardUI;
 import Models.User;
 import Services.DbFunctions;
 import Services.UserService;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.sql.*;
 
 public class LoginUI extends JFrame {
@@ -50,7 +51,7 @@ public class LoginUI extends JFrame {
         if (user != null) {
             JOptionPane.showMessageDialog(this, "Login successful");
             System.out.println(user.getUserId());
-            DashboardUI dash = new DashboardUI(user);
+            Dashboard dash = new Dashboard(user);
         } else {
             JOptionPane.showMessageDialog(this, "Invalid username or password");
         }
