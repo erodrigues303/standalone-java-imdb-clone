@@ -50,7 +50,6 @@ public class LoginUI extends JFrame {
         User user = userService.authenticateUser(username, password);
         if (user != null) {
             JOptionPane.showMessageDialog(this, "Login successful");
-            System.out.println(user.getUserId());
             Dashboard dash = new Dashboard(user);
         } else {
             JOptionPane.showMessageDialog(this, "Invalid username or password");

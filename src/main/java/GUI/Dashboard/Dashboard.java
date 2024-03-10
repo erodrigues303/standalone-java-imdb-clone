@@ -10,6 +10,7 @@ import Models.User;
 import Services.MovieService;
 
 public class Dashboard extends JFrame {
+    private static Dashboard instance;
     private User user;
     private MovieService movieService = new MovieService();
 
@@ -34,7 +35,7 @@ public class Dashboard extends JFrame {
         searchPanel = new SearchPanel();
         recentlyViewedPanel = new RecentlyViewedPanel(user);
         centerPanel = new CenterPanel(movieService, user, this);
-        friendsPanel = new FriendsPanel(user);
+//        friendsPanel = new FriendsPanel(user);
 
         // Add the panels to the main panel
         mainPanel.add(headerPanel);
@@ -46,7 +47,7 @@ public class Dashboard extends JFrame {
         JPanel centralPanel = new JPanel(new BorderLayout());
         centralPanel.add(recentlyViewedPanel, BorderLayout.WEST);
         centralPanel.add(centerPanel, BorderLayout.CENTER);
-        centralPanel.add(friendsPanel, BorderLayout.EAST);
+//        centralPanel.add(friendsPanel, BorderLayout.EAST);
 
         mainPanel.add(centralPanel);
 
@@ -54,11 +55,17 @@ public class Dashboard extends JFrame {
 
         pack();
         setVisible(true);
+
+        instance = this;
+    }
+
+    public static Dashboard getInstance() {
+        return instance;
     }
 
     private void searchMovies(String searchText) {
         List<Movie> searchResults = movieService.getMovieByName(searchText);
-        new BrowseMovieUI(user, this).displaySearchResults(searchResults);
+        new BrowseMovieUI(user).displaySearchResults(searchResults);
     }
 
     public RecentlyViewedPanel getRecentlyViewedPanel() {

@@ -26,7 +26,7 @@ public class RecentlyViewedPanel extends JPanel {
         for (Movie movie : user.getRecentlyViewed()) {
             JButton movieButton = new JButton(movie.getTitle());
             movieButton.addActionListener(e -> {
-                openMovieUI(movie);
+                MovieUtils.openMovieUI(movie, user);
             });
             recentlyViewedMoviesPanel.add(movieButton);
         }
@@ -34,9 +34,4 @@ public class RecentlyViewedPanel extends JPanel {
         recentlyViewedMoviesPanel.repaint();
     }
 
-    public void openMovieUI(Movie movie) {
-        MovieUI movieUI = MovieUI.getInstance(movie, user);
-        movieUI.updateMovieDetails(movie);
-        movieUI.setVisible(true);
-    }
 }

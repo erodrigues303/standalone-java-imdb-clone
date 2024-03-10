@@ -56,9 +56,6 @@ public class MovieService {
         );
         movie.setCoverImageUrl(rs.getString("coverImageUrl"));
         movie.setId(rs.getInt("movie_id"));
-        System.out.println(rs.getInt("movie_id"));
-        System.out.println(movie.getMovieId());
-        // Assuming you have a setId method
         return movie;
     }
 

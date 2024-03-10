@@ -15,7 +15,6 @@ public class DbFunctions {
         try {
             // Create a new connection to the database.
             Connection connection = DriverManager.getConnection("jdbc:sqlite:" + dbPath);
-            System.out.println("Connected to DB");
             return connection;
         } catch (SQLException e) {
             System.out.println("Connection failed: " + e.getMessage());
