@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 //import Services.MovieManager;
 
@@ -16,13 +18,13 @@ public class DashboardUI extends JFrame{
 
     private final User user;
 
-    private final JPanel contentPanel;
+    private  JPanel contentPanel;
     private JPanel recentlyViewedMoviesPanel;
+    private JPanel centerPanel;
     private MovieService movieService = new MovieService();
 
     public DashboardUI(User user) {
         this.user = user;
-
 
         setTitle("Dashboard");
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -35,13 +37,32 @@ public class DashboardUI extends JFrame{
         JPanel recentlyViewedPanel = createRecentlyViewedPanel();
         JPanel friendsPanel = createFriendsPanel();
 
+        // This new panel will contain the recently viewed, center, and friends panels.
+        JPanel centralPanel = new JPanel(new BorderLayout());
+
+        // Set up the center panel which will contain the recommended movies
+        centerPanel = new JPanel(new GridLayout(2, 3, 10, 10)); // 2 rows, 3 columns, and gaps
+        setupCenterPanel();
+
+        // Add the recently viewed and friends panels to the central panel
+        centralPanel.add(recentlyViewedPanel, BorderLayout.WEST);
+        centralPanel.add(centerPanel, BorderLayout.CENTER);
+        centralPanel.add(friendsPanel, BorderLayout.EAST);
+
+        // Add the header and search panels to the top of the content panel
         contentPanel.add(headerPanel, BorderLayout.NORTH);
         contentPanel.add(searchPanel, BorderLayout.CENTER);
-        contentPanel.add(recentlyViewedPanel, BorderLayout.WEST);
-        contentPanel.add(friendsPanel, BorderLayout.EAST);
 
+        // Add the central panel to the content panel, it will use the remaining space
+        contentPanel.add(centralPanel, BorderLayout.SOUTH);
+
+        // Add the content panel to the frame
         add(contentPanel);
+
+        // Pack the components within the frame
         pack();
+
+        // Make the window visible
         setVisible(true);
     }
 
@@ -121,9 +142,58 @@ public class DashboardUI extends JFrame{
         return friendsPanel;
     }
 
+    private void setupCenterPanel() {
+        centerPanel = new JPanel(new GridLayout(2, 3, 10, 10)); // 2 rows, 3 cols, horizontal and vertical gaps
+
+        // Dummy list of recommended movies
+        List<Movie> recommendedMovies = movieService.getRecommendations(user); // Replace with actual recommendation fetching method
+
+        for (Movie movie : recommendedMovies) {
+            if (centerPanel.getComponentCount() >= 6) break; // Only add up to 6 movies
+            JPanel card = createMovieCard(movie);
+            centerPanel.add(card);
+        }
+
+        // Add empty panels for remaining slots if necessary
+        for (int i = centerPanel.getComponentCount(); i < 6; i++) {
+            centerPanel.add(new JPanel());
+        }
+    }
+
+    private JPanel createMovieCard(Movie movie) {
+        JPanel cardPanel = new JPanel();
+        cardPanel.setLayout(new BoxLayout(cardPanel, BoxLayout.PAGE_AXIS));
+
+        JLabel movieTitleLabel = new JLabel(movie.getTitle());
+        movieTitleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        cardPanel.add(movieTitleLabel);
+
+        // Add image loading and resizing logic here
+        JLabel movieImageLabel = new JLabel();
+        movieImageLabel.setPreferredSize(new Dimension(100, 150)); // Set preferred size for cover image
+        loadImage(movie.getCoverImageUrl(), movieImageLabel); // Replace with actual image
+        movieImageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        cardPanel.add(movieImageLabel);
+
+        return cardPanel;
+    }
+
     public void openMovieUI(Movie movie) {
         MovieUI movieUI = MovieUI.getInstance(movie, user);
         movieUI.updateMovieDetails(movie);
         movieUI.setVisible(true);
+    }
+
+    private void loadImage(String imageUrl, JLabel imageLabel) {
+        SwingUtilities.invokeLater(() -> {
+            try {
+                URL url = new URL(imageUrl);
+                ImageIcon icon = new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(100, 150, Image.SCALE_SMOOTH));
+                imageLabel.setIcon(icon);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+                imageLabel.setText("Image not available");
+            }
+        });
     }
 }

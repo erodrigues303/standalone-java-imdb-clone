@@ -4,34 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6384baf-0a21-4a12-b447-4736d7fd9193" name="Changes" comment="    &quot;hooked up movie db, search functionality complete&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Services/RecentlyViewdService.java" afterDir="false" />
+    <list default="true" id="e6384baf-0a21-4a12-b447-4736d7fd9193" name="Changes" comment="&quot;recentlyviewed component finished and connecteed to db&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/BrowseMovieUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/BrowseMovieUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/DashboardUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/DashboardUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MovieUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MovieUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/CommentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Services/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/MovieService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/ReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/movie.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/movie.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/BrowseMovieUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/BrowseMovieUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/BrowseMovieUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/BrowseMovieUI$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/BrowseMovieUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/BrowseMovieUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/DashboardUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/DashboardUI$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/DashboardUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/DashboardUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/DashboardUI$3.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/DashboardUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/DashboardUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Models/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Models/Movie.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Models/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Services/CommentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/CommentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Services/MovieManager.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Services/MovieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/MovieService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Services/ReviewService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/ReviewService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/UserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/movie.db" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/movie.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -138,7 +121,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710012304621</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="&quot;recentlyviewed component finished and connecteed to db&quot;">
+      <option name="closed" value="true" />
+      <created>1710028452840</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1710028452840</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -146,6 +137,7 @@
     <MESSAGE value="&quot;added movies to the database and functionality to the dbservice classes&quot;" />
     <MESSAGE value="&quot;fixed main&quot;" />
     <MESSAGE value="    &quot;hooked up movie db, search functionality complete&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="    &quot;hooked up movie db, search functionality complete&quot;" />
+    <MESSAGE value="&quot;recentlyviewed component finished and connecteed to db&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;recentlyviewed component finished and connecteed to db&quot;" />
   </component>
 </project>

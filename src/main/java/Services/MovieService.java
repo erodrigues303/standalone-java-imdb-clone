@@ -2,8 +2,8 @@ package Services;
 
 import Models.*;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class MovieService {
 
@@ -45,8 +45,6 @@ public class MovieService {
     }
 
 
-
-
     public Movie resultSetToMovie(ResultSet rs) throws SQLException {
         Movie movie = new Movie(
                 rs.getString("title"),
@@ -64,6 +62,61 @@ public class MovieService {
         return movie;
     }
 
+    public List<Movie> getRecommendations(User user) {
+        List<Movie> recommendedMovies = new ArrayList<>();
+        List<Movie> recentlyViewed = user.getRecentlyViewed();
+
+        double averageRating = recentlyViewed.stream()
+                .mapToDouble(Movie::getRating)
+                .average()
+                .orElse(0.0);
+
+        Map<String, Long> genreFrequency = recentlyViewed.stream()
+                .map(Movie::getGenre)
+                .flatMap(genre -> Arrays.stream(genre.split(", ")))
+                .collect(Collectors.groupingBy(g -> g, Collectors.counting()));
+
+        List<String> mostCommonGenres = genreFrequency.entrySet().stream()
+                .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
+                .limit(2)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
+
+        IntSummaryStatistics releaseYearStats = recentlyViewed.stream()
+                .mapToInt(Movie::getReleaseYear)
+                .summaryStatistics();
+
+        int minReleaseYear = releaseYearStats.getMin();
+        int maxReleaseYear = releaseYearStats.getMax();
 
 
+        String genreInClause = mostCommonGenres.stream()
+                .map(genre -> "'" + genre + "'")
+                .collect(Collectors.joining(", "));
+
+        String sql = "SELECT * FROM Movies WHERE rating > ? AND releaseYear BETWEEN ? AND ? " +
+                "AND (genre LIKE ? OR genre LIKE ?) " +
+                "ORDER BY rating DESC LIMIT 6";
+
+
+        try (Connection conn = DbFunctions.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            // Set the parameters for the prepared statement
+            pstmt.setDouble(1, averageRating);
+            pstmt.setInt(2, minReleaseYear);
+            pstmt.setInt(3, maxReleaseYear);
+            pstmt.setString(4, "%" + mostCommonGenres.get(0) + "%");
+            pstmt.setString(5, mostCommonGenres.size() > 1 ? "%" + mostCommonGenres.get(1) + "%" : "%" + mostCommonGenres.get(0) + "%");
+
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Movie movie = resultSetToMovie(rs);
+                recommendedMovies.add(movie);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return recommendedMovies;
+    }
 }

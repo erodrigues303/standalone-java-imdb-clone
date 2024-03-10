@@ -105,6 +105,7 @@ public class BrowseMovieUI extends JFrame {
         }
     }
 
+
     @Override
     public void dispose() {
         executorService.shutdownNow();
