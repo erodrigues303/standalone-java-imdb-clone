@@ -19,8 +19,8 @@ public class Main {
         User user = us.getUserByUsername("demo");
                 SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-//                new LoginUI();
-                new Dashboard(user);
+                new LoginUI();
+
             }
         });
 

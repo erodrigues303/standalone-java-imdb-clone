@@ -5,22 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6384baf-0a21-4a12-b447-4736d7fd9193" name="Changes" comment="&quot;added center panel and movie recommendation system to dashboard, still need to fix layout&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/MovieUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/BrowseMovieUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/BrowseMovieUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Dash.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Dash.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/CenterPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/CenterPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/Dashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/DashboardUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/RecentlyViewedPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/RecentlyViewedPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/LoginUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/LoginUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/users.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Services/DbFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/DbFunctions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Services/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/MovieService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/movie.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/movie.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/BrowseMovieUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/BrowseMovieUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/LoginUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/LoginUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Models/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Models/Movie.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Services/DbFunctions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/DbFunctions.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Services/MovieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/MovieService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/movie.db" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/movie.db" afterDir="false" />
@@ -44,13 +43,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
   <component name="ProjectId" id="2dSRjVNkRUVxVB6cM9m1cVNcUqC" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -58,11 +53,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "249",
-    "git-widget-placeholder": "itr2-Ahmed",
+    "git-widget-placeholder": "Itr2",
+    "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/ahmedel-dib/Desktop/project2311/2311",
     "settings.editor.selected.configurable": "com.diffblue.cover.intellij"
   }
@@ -88,6 +85,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-11.0.22-corretto-11.0.22-4caba194b151-868cef46" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -183,7 +188,8 @@
     <MESSAGE value="    &quot;hooked up movie db, search functionality complete&quot;" />
     <MESSAGE value="&quot;recentlyviewed component finished and connecteed to db&quot;" />
     <MESSAGE value="&quot;added center panel and movie recommendation system to dashboard, still need to fix layout&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;added center panel and movie recommendation system to dashboard, still need to fix layout&quot;" />
+    <MESSAGE value="backup" />
+    <option name="LAST_COMMIT_MESSAGE" value="backup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -191,7 +197,7 @@
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
           <line>26</line>
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

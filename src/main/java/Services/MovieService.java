@@ -63,6 +63,10 @@ public class MovieService {
         List<Movie> recommendedMovies = new ArrayList<>();
         List<Movie> recentlyViewed = user.getRecentlyViewed();
 
+        if (recentlyViewed.isEmpty()) {
+            return recommendedMovies; // No recommendations if the user has not viewed any movies
+        }
+
         double averageRating = recentlyViewed.stream()
                 .mapToDouble(Movie::getRating)
                 .average()

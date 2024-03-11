@@ -27,6 +27,12 @@ public class CenterPanel extends JPanel {
     }
 
     private void setupCenterPanel() {
+        if (user.getRecentlyViewed().isEmpty()) {
+            setLayout(new FlowLayout(FlowLayout.CENTER, 50, 200)); // Small horizontal gap, no vertical gap
+            JLabel welcomeLabel = new JLabel("Search movies to start getting recommendations, " + user.getUsername() + "!");
+            welcomeLabel.setFont(new Font("Arial", Font.BOLD, 20));
+            add(welcomeLabel);
+        }
         List<Movie> recommendedMovies = movieService.getRecommendations(user); // Replace with actual recommendation fetching method
 
         for (Movie movie : recommendedMovies) {
