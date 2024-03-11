@@ -4,69 +4,66 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6384baf-0a21-4a12-b447-4736d7fd9193" name="Changes" comment="resources folder renamed to database" />
+    <list default="true" id="f9b35c1b-c4ae-4ccc-a34f-ace9a4d9456c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/LeaveReviewUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/ReviewsUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/database/movie.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/movie.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MovieUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MovieUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Services/DbFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/DbFunctions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Services/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/ReviewService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Services/DbFunctions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/DbFunctions.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Services/ReviewService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/ReviewService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/movie.db" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Itr2" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "aryagith"
-  }
-}]]></component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="ce0dfece-27d8-4b21-b6e7-faf7db32d290" />
-        <option name="url" value="https://github.com/mahmouddahlan/2311.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
-  <component name="ProjectId" id="2dSRjVNkRUVxVB6cM9m1cVNcUqC" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2dYYOeLbauto5l6raHt9X9NxqSn" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "249",
-    "git-widget-placeholder": "Itr2-arya",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/ahmedel-dib/Desktop/project2311/2311",
-    "settings.editor.selected.configurable": "com.diffblue.cover.intellij"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Itr2-arya&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="GUI" />
+      <recent name="Services" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="untitled" />
       <method v="2">
@@ -86,6 +83,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -98,127 +100,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e6384baf-0a21-4a12-b447-4736d7fd9193" name="Changes" comment="" />
-      <created>1709999628022</created>
+      <changelist id="f9b35c1b-c4ae-4ccc-a34f-ace9a4d9456c" name="Changes" comment="" />
+      <created>1710186448633</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1709999628022</updated>
+      <updated>1710186448633</updated>
     </task>
-    <task id="LOCAL-00001" summary="&quot;added database connection and fixed loginUI to use the database. Fixed project structure&quot;">
-      <option name="closed" value="true" />
-      <created>1709999702945</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1709999702945</updated>
-    </task>
-    <task id="LOCAL-00002" summary="&quot;added movies to the database and functionality to the dbservice classes&quot;">
-      <option name="closed" value="true" />
-      <created>1710010517631</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1710010517631</updated>
-    </task>
-    <task id="LOCAL-00003" summary="&quot;added movies to the database and functionality to the dbservice classes&quot;">
-      <option name="closed" value="true" />
-      <created>1710010583759</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1710010583759</updated>
-    </task>
-    <task id="LOCAL-00004" summary="&quot;fixed main&quot;">
-      <option name="closed" value="true" />
-      <created>1710010658774</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1710010658774</updated>
-    </task>
-    <task id="LOCAL-00005" summary="    &quot;hooked up movie db, search functionality complete&quot;">
-      <option name="closed" value="true" />
-      <created>1710012304621</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1710012304621</updated>
-    </task>
-    <task id="LOCAL-00006" summary="&quot;recentlyviewed component finished and connecteed to db&quot;">
-      <option name="closed" value="true" />
-      <created>1710028452840</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1710028452840</updated>
-    </task>
-    <task id="LOCAL-00007" summary="&quot;added center panel and movie recommendation system to dashboard, still need to fix layout&quot;">
-      <option name="closed" value="true" />
-      <created>1710031781481</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1710031781481</updated>
-    </task>
-    <task id="LOCAL-00008" summary="&quot;added center panel and movie recommendation system to dashboard, still need to fix layout&quot;">
-      <option name="closed" value="true" />
-      <created>1710088745232</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1710088745232</updated>
-    </task>
-    <task id="LOCAL-00009" summary="bug fix:-newly registered users can log in now.">
-      <option name="closed" value="true" />
-      <created>1710122451295</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1710122451295</updated>
-    </task>
-    <task id="LOCAL-00010" summary="resources folder renamed to database">
-      <option name="closed" value="true" />
-      <created>1710129348708</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1710129348708</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="&quot;added database connection and fixed loginUI to use the database. Fixed project structure&quot;" />
-    <MESSAGE value="&quot;added movies to the database and functionality to the dbservice classes&quot;" />
-    <MESSAGE value="&quot;fixed main&quot;" />
-    <MESSAGE value="    &quot;hooked up movie db, search functionality complete&quot;" />
-    <MESSAGE value="&quot;recentlyviewed component finished and connecteed to db&quot;" />
-    <MESSAGE value="&quot;added center panel and movie recommendation system to dashboard, still need to fix layout&quot;" />
-    <MESSAGE value="backup" />
-    <MESSAGE value="bug fix:-newly registered users can log in now." />
-    <MESSAGE value="resources folder renamed to database" />
-    <option name="LAST_COMMIT_MESSAGE" value="resources folder renamed to database" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
