@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6384baf-0a21-4a12-b447-4736d7fd9193" name="Changes" comment="bug fix:-newly registered users can log in now.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="e6384baf-0a21-4a12-b447-4736d7fd9193" name="Changes" comment="resources folder renamed to database" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -178,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710122451295</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="resources folder renamed to database">
+      <option name="closed" value="true" />
+      <created>1710129348708</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1710129348708</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -201,7 +207,8 @@
     <MESSAGE value="&quot;added center panel and movie recommendation system to dashboard, still need to fix layout&quot;" />
     <MESSAGE value="backup" />
     <MESSAGE value="bug fix:-newly registered users can log in now." />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fix:-newly registered users can log in now." />
+    <MESSAGE value="resources folder renamed to database" />
+    <option name="LAST_COMMIT_MESSAGE" value="resources folder renamed to database" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
