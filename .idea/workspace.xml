@@ -4,23 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9b35c1b-c4ae-4ccc-a34f-ace9a4d9456c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/LeaveReviewUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/ReviewsUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="8cfd4444-07e2-410d-aff7-1860305bac7c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/2311.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Services/FriendService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/database/movie.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/movie.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MovieUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MovieUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/DbFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/DbFunctions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/ReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Services/DbFunctions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/DbFunctions.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Services/ReviewService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/ReviewService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/movie.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/Dashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/FriendsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/FriendsPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,27 +29,29 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
-}</component>
-  <component name="ProjectId" id="2dYYOeLbauto5l6raHt9X9NxqSn" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2dYiu0noJ0gcqiG3LZOyZ2u55Ey" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Itr2-arya&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "Itr2-arya",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="GUI" />
+      <recent name="GUI.Dashboard" />
       <recent name="Services" />
     </key>
   </component>
@@ -66,19 +59,6 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="untitled" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="2311" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="2311" />
-      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -100,11 +80,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f9b35c1b-c4ae-4ccc-a34f-ace9a4d9456c" name="Changes" comment="" />
-      <created>1710186448633</created>
+      <changelist id="8cfd4444-07e2-410d-aff7-1860305bac7c" name="Changes" comment="" />
+      <created>1710191630891</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1710186448633</updated>
+      <updated>1710191630891</updated>
     </task>
     <servers />
   </component>

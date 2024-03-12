@@ -192,4 +192,20 @@ RecentlyViewdService recentlyViewdService = new RecentlyViewdService();
 
         return user;
     }
+    public User getUserById(int userID) {
+        String sql = "SELECT * FROM Users WHERE user_id = ?";
+        String username = null;
+        String password = null;
+        try (Connection conn = DbFunctions.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, userID);
+            ResultSet rs = pstmt.executeQuery();
+            // Assuming a method that converts a ResultSet row to a Review object
+            username = rs.getString("username");
+            password = rs.getString("password");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return new User(username,password);
+    }
 }
