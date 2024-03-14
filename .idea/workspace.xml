@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8cfd4444-07e2-410d-aff7-1860305bac7c" name="Changes" comment="Working friends list">
+    <list default="true" id="8cfd4444-07e2-410d-aff7-1860305bac7c" name="Changes" comment="Planning Doc ITR2 added">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tests/JunitTests/Junittest_Review.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/movie.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/movie.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tests/Junittest_Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tests/JunitTests/Junittest_Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tests/Junittest_Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tests/JunitTests/Junittest_Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tests/Junittest_User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tests/JunitTests/Junittest_User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,18 +36,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "ITR2",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/school/EECS 2032/Lab_7"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;ITR2&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/school/EECS 2032/Lab_7&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="GUI.Dashboard" />
@@ -90,11 +93,31 @@
       <option name="project" value="LOCAL" />
       <updated>1710204274311</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Planning Doc ITR2 added">
+      <option name="closed" value="true" />
+      <created>1710357418390</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1710357418390</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Working friends list" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working friends list" />
+    <MESSAGE value="Planning Doc ITR2 added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Planning Doc ITR2 added" />
   </component>
 </project>
