@@ -1,4 +1,4 @@
-package Tests;
+package Tests.JunitTests;
 import Models.Review;
 import org.junit.*;
 import java.util.List;
