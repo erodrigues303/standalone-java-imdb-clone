@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8cfd4444-07e2-410d-aff7-1860305bac7c" name="Changes" comment="UML Diagram ITR2">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Tests/IntegrationTests/IntegrationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tests/IntegrationTests/IntegrationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tests/JunitTests/Junittest_Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tests/JunitTests/Junittest_Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tests/JunitTests/Junittest_Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tests/JunitTests/Junittest_Review.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
