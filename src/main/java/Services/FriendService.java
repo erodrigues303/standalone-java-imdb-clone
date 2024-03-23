@@ -17,6 +17,7 @@ public class FriendService {
             pstmt.setInt(1, userId);
             pstmt.setInt(2, friendId);
             return pstmt.executeUpdate() > 0;
+
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -100,16 +101,17 @@ public class FriendService {
         }
     }
 
-    public static void declineFriendRequest(int senderUserId, int UserId) {
-        String sql = "UPDATE FriendRequests SET status = ? WHERE sender_id = ? AND receiver_id = ?";
+    public static boolean declineFriendRequest(int requestID) {
+        String sql = "DELETE FROM FriendRequests WHERE request_id = ?";
         try (Connection conn = DbFunctions.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, "DECLINED");
-            pstmt.setInt(2, senderUserId);
-            pstmt.setInt(3,UserId);
+            pstmt.setInt(1, requestID);
             int rowsAffected = pstmt.executeUpdate();
+            // Optionally, you can check if any rows were affected
+            return rowsAffected>0 ;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
     }
 

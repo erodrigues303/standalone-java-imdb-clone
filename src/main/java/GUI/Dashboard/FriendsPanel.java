@@ -62,8 +62,8 @@ public class FriendsPanel extends JPanel {
                 if (friendId != -1) {
                     boolean added = friendsService.sendFriendRequest(user.getUserId(), friendId);
                     if (added) {
-                        updateFriendsList();
                         JOptionPane.showMessageDialog(null, "Friend request sent successfully.");
+                        updateFriendsList();
                     } else {
                         JOptionPane.showMessageDialog(null, "Failed to send friend request.");
                     }

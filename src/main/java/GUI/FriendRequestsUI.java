@@ -9,16 +9,22 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
-import GUI.Dashboard.FriendsPanel;
+
+import Services.UserService;
 
 public class FriendRequestsUI extends JPanel {
     private User user;
-    private FriendService friendService;
     private FriendsPanel friendsPanel;
+    private UserService userService;
+    private FriendService friendsService;
+
 
 
     public FriendRequestsUI(User user) {
         this.user = user;
+        friendsPanel= new FriendsPanel(user);
+        friendsService= new FriendService();
+        userService= new UserService();
 
         setLayout(new BorderLayout());
 
@@ -55,6 +61,8 @@ public class FriendRequestsUI extends JPanel {
                             JOptionPane.showMessageDialog(null, "Friend added successfully.");
                             FriendService.addFriend(user.getUserId(),senderID);
                             FriendService.addFriend(senderID,user.getUserId());
+                            updateFriendRequestsList(friendRequestsPanel);
+                            friendsPanel.updateFriendsList();
                         } else {
                             // Failed to add friend, handle accordingly
                             JOptionPane.showMessageDialog(null, "Failed to add friend.");
@@ -69,8 +77,19 @@ public class FriendRequestsUI extends JPanel {
             declineButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    // Decline friend request
-                    // Pass the sender's username or user ID to declineFriendRequest method
+                    int senderID= FriendService.getSenderID(request);
+                    if(senderID != -1){
+                        boolean declined= FriendService.declineFriendRequest(request);
+                        if(declined){
+                        JOptionPane.showMessageDialog(null,"Friend request declined.");
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(null,"Could not decline friend request.");
+                        }
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null,"Could not find senders ID.");
+                    }
                 }
             });
 
@@ -81,4 +100,5 @@ public class FriendRequestsUI extends JPanel {
         }
     }
 }
+
 
