@@ -1,4 +1,5 @@
 package GUI.Dashboard;
+import GUI.FriendRequestsUI;
 import Models.User;
 import Services.DbFunctions;
 import Services.FriendService;
@@ -39,14 +40,19 @@ public class FriendsPanel extends JPanel {
         JScrollPane scrollPane = new JScrollPane(friendsListArea);
         add(scrollPane, BorderLayout.CENTER);
 
+        JPanel mainPanel = new JPanel(new BorderLayout());
+        add(mainPanel, BorderLayout.SOUTH);
+
         JPanel buttonsPanel = new JPanel(new GridLayout(2, 2, 5, 5));
-        add(buttonsPanel, BorderLayout.SOUTH);
+        mainPanel.add(buttonsPanel, BorderLayout.NORTH);
 
         JButton addFriendButton = new JButton("Add Friend");
         JButton removeFriendButton = new JButton("Remove Friend");
+        JButton friendRequestsButton = new JButton("Friend Requests");
 
         usernameField = new JTextField();
         JLabel usernameLabel = new JLabel("Username:");
+        updateFriendsList();
 
         addFriendButton.addActionListener(new ActionListener() {
             @Override
@@ -54,14 +60,12 @@ public class FriendsPanel extends JPanel {
                 String username = usernameField.getText();
                 int friendId = getUserIdByUsername(username);
                 if (friendId != -1) {
-                    boolean added = friendsService.addFriend(user.getUserId(), friendId);
+                    boolean added = friendsService.sendFriendRequest(user.getUserId(), friendId);
                     if (added) {
-                        // Add the friend to the other person's friend list
-                        friendsService.addFriend(friendId, user.getUserId());
                         updateFriendsList();
-                        JOptionPane.showMessageDialog(null, "Friend added successfully.");
+                        JOptionPane.showMessageDialog(null, "Friend request sent successfully.");
                     } else {
-                        JOptionPane.showMessageDialog(null, "Failed to add friend.");
+                        JOptionPane.showMessageDialog(null, "Failed to send friend request.");
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "User not found.");
@@ -90,15 +94,24 @@ public class FriendsPanel extends JPanel {
             }
         });
 
+        friendRequestsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                openFriendRequestsUI();
+            }
+        });
+
         buttonsPanel.add(usernameLabel);
         buttonsPanel.add(usernameField);
         buttonsPanel.add(addFriendButton);
         buttonsPanel.add(removeFriendButton);
 
+        mainPanel.add(new JPanel(), BorderLayout.CENTER); // Empty panel to create space
+        mainPanel.add(friendRequestsButton, BorderLayout.SOUTH);
         updateFriendsList();
     }
 
-    private void updateFriendsList() {
+    public void updateFriendsList() {
         List<Integer> friendIds = friendsService.getFriends(user.getUserId());
         StringBuilder sb = new StringBuilder();
         for (int friendId : friendIds) {
@@ -110,22 +123,18 @@ public class FriendsPanel extends JPanel {
         }
         friendsListArea.setText(sb.toString());
     }
+
     private int getUserIdByUsername(String username) {
         return userService.getUserByUsername(username).getUserId();
     }
-    public String getUserNameById(int userID) {
-        String sql = "SELECT * FROM Users WHERE user_id = ?";
-        String username = null;
-        try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setInt(1, userID);
-            ResultSet rs = pstmt.executeQuery();
-            // Assuming a method that converts a ResultSet row to a Review object
-            username = rs.getString("username");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return username;
+
+    private void openFriendRequestsUI() {
+        JFrame frame = new JFrame("Friend Requests");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.getContentPane().add(new FriendRequestsUI(user));
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
     }
 }
 
