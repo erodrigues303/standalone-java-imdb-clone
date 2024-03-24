@@ -18,8 +18,8 @@ public class Dashboard extends JFrame {
     private HeaderPanel headerPanel;
     private SearchPanel searchPanel;
     private RecentlyViewedPanel recentlyViewedPanel;
-    private CenterPanel centerPanel;
     private FriendsPanel friendsPanel;
+    private MovieRecommendationPanel mPanel;
 
     public Dashboard(User user) {
         this.user = user;
@@ -35,8 +35,8 @@ public class Dashboard extends JFrame {
         headerPanel = new HeaderPanel(user);
         searchPanel = new SearchPanel();
         recentlyViewedPanel = new RecentlyViewedPanel(user);
-        centerPanel = new CenterPanel(movieService, user, this);
         friendsPanel = new FriendsPanel(user);
+        mPanel = new MovieRecommendationPanel(user.getUsername());
 
         // Add the panels to the main panel
         mainPanel.add(headerPanel);
@@ -47,8 +47,12 @@ public class Dashboard extends JFrame {
         // Create a central panel to hold the main content
         JPanel centralPanel = new JPanel(new BorderLayout());
         centralPanel.add(recentlyViewedPanel, BorderLayout.WEST);
-        centralPanel.add(centerPanel, BorderLayout.CENTER);
         centralPanel.add(friendsPanel, BorderLayout.EAST);
+        centralPanel.add(mPanel, BorderLayout.SOUTH);
+
+        // Add CenterPanel to the center
+        CenterPanel centerPanel = new CenterPanel(movieService, user, this);
+        centralPanel.add(centerPanel, BorderLayout.CENTER);
 
         mainPanel.add(centralPanel);
 
@@ -73,3 +77,4 @@ public class Dashboard extends JFrame {
         return recentlyViewedPanel;
     }
 }
+
