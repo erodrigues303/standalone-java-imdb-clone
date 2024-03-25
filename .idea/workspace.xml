@@ -4,21 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8cfd4444-07e2-410d-aff7-1860305bac7c" name="Changes" comment="Friend Request feature basic implementation">
+    <list default="true" id="8cfd4444-07e2-410d-aff7-1860305bac7c" name="Changes" comment="Working Movie Recommend feature">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/database/movie.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/movie.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/DbFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/DbFunctions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/Dashboard/Dashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/Dashboard/Dashboard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/Dashboard/FriendsPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/Dashboard/FriendsPanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/Dashboard/FriendsPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/Dashboard/FriendsPanel$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/Dashboard/FriendsPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/Dashboard/FriendsPanel$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/FriendRequestsUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/FriendRequestsUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/FriendRequestsUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/FriendRequestsUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/FriendRequestsUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/FriendRequestsUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MovieUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MovieUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Services/FriendService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/FriendService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/Dashboard/FriendsPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/Dashboard/FriendsPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Services/DbFunctions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/DbFunctions.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Services/FriendService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/FriendService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +66,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\school\EECS 2311\2311\src\main\database" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\school\EECS 2311\2311\src\main\java\Tests\IntegrationTests" />
       <recent name="C:\school\EECS 2311\2311\src\main\java\Tests\JunitTests" />
@@ -189,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711174605940</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Working Movie Recommend feature">
+      <option name="closed" value="true" />
+      <created>1711333367367</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1711333367367</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -210,7 +219,8 @@
     <MESSAGE value="UML Diagram ITR2" />
     <MESSAGE value="Rollback to UnitTesting(broken integration tests)" />
     <MESSAGE value="Friend Request feature basic implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Friend Request feature basic implementation" />
+    <MESSAGE value="Working Movie Recommend feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working Movie Recommend feature" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

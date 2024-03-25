@@ -39,7 +39,7 @@ public class FriendService {
     }
 
     // Method to retrieve friends for a user
-    public List<Integer> getFriends(int userId) {
+    public static List<Integer> getFriends(int userId) {
         List<Integer> friends = new ArrayList<>();
         String sql = "SELECT friend_id FROM Friends WHERE user_id = ?";
         try (Connection conn = DbFunctions.connect();
