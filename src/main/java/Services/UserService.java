@@ -192,7 +192,7 @@ RecentlyViewdService recentlyViewdService = new RecentlyViewdService();
 
         return user;
     }
-    public User getUserById(int userID) {
+    public static User getUserById(int userID) {
         String sql = "SELECT * FROM Users WHERE user_id = ?";
         String username = null;
         String password = null;

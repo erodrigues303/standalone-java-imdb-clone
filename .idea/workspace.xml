@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="8cfd4444-07e2-410d-aff7-1860305bac7c" name="Changes" comment="&quot;pulled itr3&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/$PROJECT_FILE$" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/2311.iml" beforeDir="false" />
@@ -20,6 +21,21 @@
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/Dashboard/CenterPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/Dashboard/CenterPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/Dashboard/Dashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/Dashboard/Dashboard.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/Dashboard/SearchPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/Dashboard/SearchPanel.class" afterDir="false" />
+=======
+    <list default="true" id="8cfd4444-07e2-410d-aff7-1860305bac7c" name="Changes" comment="Working Movie Recommend feature">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/database/movie.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/movie.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MovieUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MovieUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Services/FriendService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/FriendService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/Dashboard/FriendsPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/Dashboard/FriendsPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Services/FriendService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/FriendService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/UserService.class" afterDir="false" />
+>>>>>>> 75d8cafe6cc5a7c2159df7485b3555210e292c0f
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +56,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="KEEP" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -60,6 +77,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
@@ -72,9 +90,26 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/ahmedel-dib/Desktop/2311&quot;
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "JUnit.IntegrationTest.executor": "Run",
+    "JUnit.IntegrationTest.testFriendAndRecentlyViewedFlow.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "ITR3",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/school/EECS 2311/2311/src/main/database"
+>>>>>>> 75d8cafe6cc5a7c2159df7485b3555210e292c0f
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\school\EECS 2311\2311\src\main\database" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\school\EECS 2311\2311\src\main\java\Tests\IntegrationTests" />
       <recent name="C:\school\EECS 2311\2311\src\main\java\Tests\JunitTests" />
@@ -196,6 +231,7 @@
       <option name="project" value="LOCAL" />
       <updated>1711174605940</updated>
     </task>
+<<<<<<< HEAD
     <task id="LOCAL-00007" summary="&quot;pulled itr3&quot;">
       <option name="closed" value="true" />
       <created>1711308127109</created>
@@ -203,6 +239,15 @@
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
       <updated>1711308127109</updated>
+=======
+    <task id="LOCAL-00007" summary="Working Movie Recommend feature">
+      <option name="closed" value="true" />
+      <created>1711333367367</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1711333367367</updated>
+>>>>>>> 75d8cafe6cc5a7c2159df7485b3555210e292c0f
     </task>
     <option name="localTasksCounter" value="8" />
     <servers />
@@ -225,8 +270,13 @@
     <MESSAGE value="UML Diagram ITR2" />
     <MESSAGE value="Rollback to UnitTesting(broken integration tests)" />
     <MESSAGE value="Friend Request feature basic implementation" />
+<<<<<<< HEAD
     <MESSAGE value="&quot;pulled itr3&quot;" />
     <option name="LAST_COMMIT_MESSAGE" value="&quot;pulled itr3&quot;" />
+=======
+    <MESSAGE value="Working Movie Recommend feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working Movie Recommend feature" />
+>>>>>>> 75d8cafe6cc5a7c2159df7485b3555210e292c0f
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
