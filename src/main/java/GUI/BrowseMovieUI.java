@@ -32,15 +32,31 @@ public class BrowseMovieUI extends JFrame {
 
     public void displaySearchResults(List<Movie> searchResults) {
         searchResultsPanel.removeAll(); // Clear previous search results
-        for (Movie movie : searchResults) {
-            executorService.execute(() -> {
-                JPanel moviePanel = MovieUtils.createMovieCard(movie, user);
-                SwingUtilities.invokeLater(() -> {
-                    searchResultsPanel.add(moviePanel);
-                    searchResultsPanel.revalidate();
-                    searchResultsPanel.repaint();
-                });
+
+        if (searchResults.isEmpty()) {
+            // If there are no search results, display a message
+            SwingUtilities.invokeLater(() -> {
+                JLabel noResultsLabel = new JLabel("No results found. Please try another search with new criteria.");
+                noResultsLabel.setFont(new Font(noResultsLabel.getFont().getName(), Font.BOLD, 16)); // Make font bold
+                                                                                                     // and larger
+                noResultsLabel.setHorizontalAlignment(JLabel.CENTER); // Center text horizontally
+                noResultsLabel.setVerticalAlignment(JLabel.CENTER); // Center text vertically
+                searchResultsPanel.add(noResultsLabel);
+                searchResultsPanel.revalidate();
+                searchResultsPanel.repaint();
             });
+        } else {
+            // Otherwise, display the search results
+            for (Movie movie : searchResults) {
+                executorService.execute(() -> {
+                    JPanel moviePanel = MovieUtils.createMovieCard(movie, user);
+                    SwingUtilities.invokeLater(() -> {
+                        searchResultsPanel.add(moviePanel);
+                        searchResultsPanel.revalidate();
+                        searchResultsPanel.repaint();
+                    });
+                });
+            }
         }
     }
 

@@ -8,13 +8,14 @@ import GUI.BrowseMovieUI;
 import Models.Movie;
 import Models.User;
 import Services.MovieService;
+import Services.RecommendationService;
 import Services.FriendService;
 
 public class Dashboard extends JFrame {
     private static Dashboard instance;
     private User user;
     private MovieService movieService = new MovieService();
-
+    private RecommendationService recommendationService = new RecommendationService();
     private HeaderPanel headerPanel;
     private SearchPanel searchPanel;
     private RecentlyViewedPanel recentlyViewedPanel;
@@ -35,15 +36,30 @@ public class Dashboard extends JFrame {
         headerPanel = new HeaderPanel(user);
         searchPanel = new SearchPanel();
         recentlyViewedPanel = new RecentlyViewedPanel(user);
-        centerPanel = new CenterPanel(movieService, user, this);
+        centerPanel = new CenterPanel(recommendationService, user, this);
         friendsPanel = new FriendsPanel(user);
 
         // Add the panels to the main panel
         mainPanel.add(headerPanel);
 
-        searchPanel.addSearchActionListener(e -> searchMovies(searchPanel.getSearchText()));
-        mainPanel.add(searchPanel);
+        searchPanel.addSearchActionListener(e -> {
+            String searchText = searchPanel.getSearchText();
+            String genreText = searchPanel.getGenreText();
+            Integer selectedRating = searchPanel.getSelectedRating();
 
+            // Check if the search text is null or empty
+            if (searchText == null || searchText.trim().isEmpty()) {
+                // Prompt the user to enter a movie title or search keyword
+                JOptionPane.showMessageDialog(mainPanel,
+                        "Please enter a movie title or search keyword.",
+                        "No Search Criteria",
+                        JOptionPane.WARNING_MESSAGE);
+            } else {
+                // Proceed with the search if search text is provided
+                searchMovies(searchText, genreText, selectedRating);
+            }
+        });
+        mainPanel.add(searchPanel);
         // Create a central panel to hold the main content
         JPanel centralPanel = new JPanel(new BorderLayout());
         centralPanel.add(recentlyViewedPanel, BorderLayout.WEST);
@@ -64,8 +80,9 @@ public class Dashboard extends JFrame {
         return instance;
     }
 
-    private void searchMovies(String searchText) {
-        List<Movie> searchResults = movieService.getMovieByName(searchText);
+    private void searchMovies(String name, String genre, Integer rating) {
+
+        List<Movie> searchResults = movieService.searchMovies(name, genre, rating);
         new BrowseMovieUI(user).displaySearchResults(searchResults);
     }
 

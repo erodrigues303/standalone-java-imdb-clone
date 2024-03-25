@@ -10,7 +10,7 @@ public class MovieService {
     public boolean createMovie(Movie movie) {
         String sql = "INSERT INTO Movies (title, releaseYear, description, genre, rating, coverImageUrl) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection conn = DbFunctions.connect(); // This method should establish a new DB connection
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, movie.getTitle());
             pstmt.setInt(2, movie.getReleaseYear());
@@ -18,7 +18,7 @@ public class MovieService {
             pstmt.setString(4, movie.getGenre());
             pstmt.setDouble(5, movie.getRating());
             pstmt.setString(6, movie.getCoverImageUrl());
-//            System.out.println(pstmt);
+            // System.out.println(pstmt);
             int affectedRows = pstmt.executeUpdate();
             return affectedRows > 0;
         } catch (SQLException e) {
@@ -27,15 +27,36 @@ public class MovieService {
         }
     }
 
-    public List<Movie> getMovieByName(String namePart) {
+    public List<Movie> searchMovies(String namePart, String genre, Integer rating) {
         List<Movie> movies = new ArrayList<>();
-        String sql = "SELECT * FROM Movies WHERE title LIKE ?";
+        ArrayList<Object> parameters = new ArrayList<>();
+        String sql = "SELECT * FROM Movies WHERE 1=1";
+
+        if (namePart != null && !namePart.isEmpty()) {
+            sql += " AND title LIKE ?";
+            parameters.add("%" + namePart + "%");
+        }
+
+        if (genre != null && !genre.isEmpty()) {
+            sql += " AND genre LIKE ?";
+            parameters.add("%" + genre + "%");
+        }
+
+        if (rating != null) {
+            sql += " AND rating >= ?";
+            parameters.add(rating);
+        }
+
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, "%" + namePart + "%"); // Use "%" for SQL wildcard matching
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            for (int i = 0; i < parameters.size(); i++) {
+                pstmt.setObject(i + 1, parameters.get(i));
+            }
+
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
-                Movie movie = resultSetToMovie(rs); // Use your existing method to create the movie object
+                Movie movie = resultSetToMovie(rs);
                 movies.add(movie);
             }
         } catch (SQLException e) {
@@ -43,7 +64,6 @@ public class MovieService {
         }
         return movies;
     }
-
 
     public Movie resultSetToMovie(ResultSet rs) throws SQLException {
         Movie movie = new Movie(
@@ -90,26 +110,25 @@ public class MovieService {
         int minReleaseYear = releaseYearStats.getMin();
         int maxReleaseYear = releaseYearStats.getMax();
 
-
         String genreInClause = mostCommonGenres.stream()
                 .map(genre -> "'" + genre + "'")
                 .collect(Collectors.joining(", "));
 
         String sql = "SELECT * FROM Movies WHERE rating > ? AND releaseYear BETWEEN ? AND ? " +
                 "AND (genre LIKE ? OR genre LIKE ?) " +
-//                "ORDER BY rating DESC "+
+                // "ORDER BY rating DESC "+
                 "LIMIT 6";
 
-
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             // Set the parameters for the prepared statement
             pstmt.setDouble(1, averageRating);
             pstmt.setInt(2, minReleaseYear);
             pstmt.setInt(3, maxReleaseYear);
             pstmt.setString(4, "%" + mostCommonGenres.get(0) + "%");
-            pstmt.setString(5, mostCommonGenres.size() > 1 ? "%" + mostCommonGenres.get(1) + "%" : "%" + mostCommonGenres.get(0) + "%");
+            pstmt.setString(5, mostCommonGenres.size() > 1 ? "%" + mostCommonGenres.get(1) + "%"
+                    : "%" + mostCommonGenres.get(0) + "%");
 
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
