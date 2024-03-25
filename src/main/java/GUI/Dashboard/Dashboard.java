@@ -21,6 +21,7 @@ public class Dashboard extends JFrame {
     private RecentlyViewedPanel recentlyViewedPanel;
     private FriendsPanel friendsPanel;
     private MovieRecommendationPanel mPanel;
+    private CenterPanel centerPanel;
 
     public Dashboard(User user) {
         this.user = user;
