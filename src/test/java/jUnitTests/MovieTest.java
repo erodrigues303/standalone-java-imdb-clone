@@ -1,9 +1,11 @@
-package Tests.JunitTests;
+package jUnitTests;
+
 import Models.Review;
+import junit.framework.TestCase;
 import org.junit.*;
 import java.util.List;
-import static junit.framework.TestCase.*;
-public class Junittest_Movie {
+
+public class MovieTest {
     private String title;
     private int releaseYear;
     private String description;
@@ -28,38 +30,38 @@ public class Junittest_Movie {
     }
     @Test
     public void testGetMovieId() {
-        assertEquals(0, movieId);
+        TestCase.assertEquals(0, movieId);
     }
     @Test
     public void testGetTitle() {
-        assertEquals("Animal", title);
+        TestCase.assertEquals("Animal", title);
     }
     @Test
     public void testGetReleaseYear() {
-        assertEquals(2023, releaseYear);
+        TestCase.assertEquals(2023, releaseYear);
     }
     @Test
     public void testGetDescription() {
-        assertEquals(null, description);
+        TestCase.assertEquals(null, description);
     }
     @Test
     public void testGetGenre() {
-        assertEquals(null, genre);
+        TestCase.assertEquals(null, genre);
     }
     @Test
     public void testGetRating() {
-        assertEquals(0.0, rating);
+        TestCase.assertEquals(0.0, rating);
     }
     @Test
     public void testGetRating_list() {
-        assertEquals(null, rating_list);
+        TestCase.assertEquals(null, rating_list);
     }
     @Test
     public void testGetReviews() {
-        assertEquals(null, reviews);
+        TestCase.assertEquals(null, reviews);
     }
     @Test
     public void testGetCoverImageUrl() {
-        assertEquals(null, coverImageUrl);
+        TestCase.assertEquals(null, coverImageUrl);
     }
 }

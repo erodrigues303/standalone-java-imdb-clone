@@ -1,9 +1,9 @@
-package Tests.JunitTests;
-import Models.*;
+package jUnitTests;
+
 import org.junit.*;
-import java.util.List;
+
 import static junit.framework.TestCase.*;
-public class Junittest_Comment {
+public class CommentTest {
     private int commentId;
     private int userId;
     private String commentText;
@@ -20,7 +20,7 @@ public class Junittest_Comment {
     }
     @Test
     public void testGetCommentId() {
-        assertEquals(4, commentId);
+       assertEquals(4, commentId);
     }
     @Test
     public void testGetUserId() {

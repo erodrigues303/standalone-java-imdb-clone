@@ -1,8 +1,9 @@
-package Tests.JunitTests;
-import Models.Review;
+package jUnitTests;
+
+import junit.framework.TestCase;
 import org.junit.*;
-import static junit.framework.TestCase.*;
-public class Junittest_Review {
+
+public class ReviewTest {
     private int reviewId;
     private int userId;
     private int movieId;
@@ -19,22 +20,22 @@ public class Junittest_Review {
     }
     @Test
     public void testGetReviewId() {
-        assertEquals(1, reviewId);
+        TestCase.assertEquals(1, reviewId);
     }
     @Test
     public void testGetUserId() {
-        assertEquals(1, userId);
+        TestCase.assertEquals(1, userId);
     }
     @Test
     public void testGetMovieId() {
-        assertEquals(1, movieId);
+        TestCase.assertEquals(1, movieId);
     }
     @Test
     public void testGetReviewText() {
-        assertEquals("This movie is not good", reviewText);
+        TestCase.assertEquals("This movie is not good", reviewText);
     }
     @Test
     public void testGetRating() {
-        assertEquals(2, rating);
+        TestCase.assertEquals(2, rating);
     }
 }

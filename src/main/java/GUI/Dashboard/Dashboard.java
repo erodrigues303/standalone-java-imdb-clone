@@ -36,7 +36,7 @@ public class Dashboard extends JFrame {
         searchPanel = new SearchPanel();
         recentlyViewedPanel = new RecentlyViewedPanel(user);
         friendsPanel = new FriendsPanel(user);
-        mPanel = new MovieRecommendationPanel(user.getUsername());
+        mPanel = new MovieRecommendationPanel(user);
 
         // Add the panels to the main panel
         mainPanel.add(headerPanel);

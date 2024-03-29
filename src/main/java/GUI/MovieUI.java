@@ -126,8 +126,12 @@ public class MovieUI extends JFrame {
     }
     private void updateFriends() {
         ArrayList<Integer> friendIds = (ArrayList<Integer>) FriendService.getFriends(user.getUserId());
-        friendWindow.getContentPane().removeAll(); // Clear previous content
-        friendWindow.setLayout(new GridLayout(friendIds.size(), 1)); // Set layout
+
+        // Clear previous content
+        friendWindow.getContentPane().removeAll();
+
+        JPanel friendPanel = new JPanel();
+        friendPanel.setLayout(new GridLayout(friendIds.size(), 1));
 
         for (int friendId : friendIds) {
             // Fetch friend's name based on their ID
@@ -153,10 +157,12 @@ public class MovieUI extends JFrame {
                         }
                     }
                 });
-                friendWindow.add(friendButton);
+                friendPanel.add(friendButton);
             }
         }
 
+        JScrollPane scrollPane = new JScrollPane(friendPanel);
+        friendWindow.getContentPane().add(scrollPane, BorderLayout.CENTER);
         friendWindow.revalidate(); // Revalidate the window
         friendWindow.repaint(); // Repaint the window
     }

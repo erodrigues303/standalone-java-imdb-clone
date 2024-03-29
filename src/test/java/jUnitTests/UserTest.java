@@ -1,4 +1,5 @@
-package Tests.JunitTests;
+package jUnitTests;
+
 import Models.Comment;
 import Models.Movie;
 import Models.Review;
@@ -6,7 +7,8 @@ import Models.User;
 import org.junit.*;
 import java.util.List;
 import static junit.framework.TestCase.*;
-public class Junittest_User {
+import junit.framework.TestCase;
+public class UserTest {
     private int userId;
     private String username;
     private String password;
@@ -28,15 +30,15 @@ public class Junittest_User {
     }
     @Test
     public void testGetUserId() {
-        assertEquals(0, userId);
+        TestCase.assertEquals(0, userId);
     }
     @Test
     public void testGetUsername() {
-        assertEquals("John", username);
+        TestCase.assertEquals("John", username);
     }
     @Test
     public void testGetPassword() {
-        assertEquals("123", password);
+        TestCase.assertEquals("123", password);
     }
     @Test
     public void testGetWatchlist() {

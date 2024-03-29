@@ -39,7 +39,6 @@ public class CenterPanel extends JPanel {
             JPanel card = MovieUtils.createMovieCard(movie, user);
             add(card);
         }
-
     }
 
     public void refreshRecommendations() {

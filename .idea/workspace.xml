@@ -4,19 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8cfd4444-07e2-410d-aff7-1860305bac7c" name="Changes" comment="Working Movie Recommend feature">
+    <list default="true" id="8cfd4444-07e2-410d-aff7-1860305bac7c" name="Changes" comment="Movie Recommendation with Cards">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/postgresql_42_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GUI/RecommendToFriendUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/database/movie.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/movie.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/CenterPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/CenterPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/Dashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/MovieRecommendationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/MovieRecommendationPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MovieUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MovieUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/FriendService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/FriendService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/Dashboard/FriendsPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/Dashboard/FriendsPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Services/MovieRecommendationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/MovieRecommendationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tests/JunitTests/Junittest_Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/jUnitTests/CommentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tests/JunitTests/Junittest_Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/jUnitTests/MovieTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tests/JunitTests/Junittest_Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/jUnitTests/ReviewTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tests/JunitTests/Junittest_User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/jUnitTests/UserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/Dashboard/CenterPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/Dashboard/CenterPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/Dashboard/Dashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/Dashboard/Dashboard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/Dashboard/MovieRecommendationPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/Dashboard/MovieRecommendationPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/Dashboard/MovieRecommendationPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/Dashboard/MovieRecommendationPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/MovieUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/MovieUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Services/FriendService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/FriendService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Services/MovieRecommendationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/MovieRecommendationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Tests/JunitTests/Junittest_Comment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Tests/JunitTests/Junittest_Movie.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Tests/JunitTests/Junittest_Review.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Tests/JunitTests/Junittest_User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled.iml" beforeDir="false" afterPath="$PROJECT_DIR$/untitled.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,20 +67,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "JUnit.IntegrationTest.executor": "Run",
-    "JUnit.IntegrationTest.testFriendAndRecentlyViewedFlow.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "ITR3",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/school/EECS 2311/2311/src/main/database"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IntegrationTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IntegrationTest.testFriendAndRecentlyViewedFlow.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.untitled [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.untitled [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.untitled [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.untitled [test].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.untitled [validate].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;ITR3&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/school/EECS 2311/2311/src/main/database&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\school\EECS 2311\2311\src\main\database" />
@@ -72,6 +96,9 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\school\EECS 2311\2311\src\main\java\Tests\IntegrationTests" />
       <recent name="C:\school\EECS 2311\2311\src\main\java\Tests\JunitTests" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="GUI.Dashboard" />
@@ -128,7 +155,6 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-11.0.22-corretto-11.0.22-4caba194b151-868cef46" />
         <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
       </set>
     </attachedChunks>
@@ -198,7 +224,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711333367367</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Movie Recommendation+Friend Requests(both working)">
+      <option name="closed" value="true" />
+      <created>1711334593118</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1711334593118</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -220,7 +254,9 @@
     <MESSAGE value="Rollback to UnitTesting(broken integration tests)" />
     <MESSAGE value="Friend Request feature basic implementation" />
     <MESSAGE value="Working Movie Recommend feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working Movie Recommend feature" />
+    <MESSAGE value="Movie Recommendation+Friend Requests(both working)" />
+    <MESSAGE value="Movie Recommendation with Cards" />
+    <option name="LAST_COMMIT_MESSAGE" value="Movie Recommendation with Cards" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -228,6 +264,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="5" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.sql.SQLException" package="java.sql" />
+          <option name="timeStamp" value="6" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
