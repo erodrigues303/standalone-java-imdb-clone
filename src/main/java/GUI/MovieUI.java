@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class MovieUI extends JFrame {
     private static MovieUI instance;
     private final User user;
-    private  Movie movie;
+    private Movie movie;
 
     private JTextArea friendsList;
     private JLabel titleLabel;
@@ -28,6 +28,7 @@ public class MovieUI extends JFrame {
     private JLabel ratingLabel;
     private JLabel coverImageLabel;
     private JLabel descriptionLabel;
+    private JLabel genreLabel;
 
     private JFrame friendWindow;
 
@@ -75,6 +76,9 @@ public class MovieUI extends JFrame {
         coverImageLabel = new JLabel();
         movieDetailsPanel.add(coverImageLabel);
 
+        genreLabel = new JLabel();
+        movieDetailsPanel.add(genreLabel);
+
         descriptionLabel = new JLabel();
         movieDetailsPanel.add(descriptionLabel);
 
@@ -86,7 +90,8 @@ public class MovieUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Logic to handle leaving review
-                openLeaveReviewUI(user, movie);            }
+                openLeaveReviewUI(user, movie);
+            }
         });
         buttonPanel.add(leaveReviewButton);
 
@@ -95,7 +100,8 @@ public class MovieUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Logic to handle rating
-                openReviewsUI(movie);            }
+                openReviewsUI(movie);
+            }
         });
         buttonPanel.add(rateButton);
 
@@ -173,6 +179,7 @@ public class MovieUI extends JFrame {
         ratingLabel.setText("Rating: " + movie.getRating());
         loadImage(movie.getCoverImageUrl(), coverImageLabel);
         descriptionLabel.setText("<html>Description: " + movie.getDescription() + "</html>");
+        genreLabel.setText(movie.getGenre());
     }
 
     private void loadImage(String imageUrl, JLabel imageLabel) {
@@ -192,13 +199,14 @@ public class MovieUI extends JFrame {
         setTitle("Movie Details: " + movie.getTitle());
         populateMovieDetails();
     }
-    public void openLeaveReviewUI (User user, Movie movie){
+
+    public void openLeaveReviewUI(User user, Movie movie) {
         LeaveReviewUI reviewUI = new LeaveReviewUI(user, movie);
         reviewUI.setVisible(true);
     }
-    public void openReviewsUI (Movie movie){
+
+    public void openReviewsUI(Movie movie) {
         ReviewsUI reviewUI = new ReviewsUI(movie);
         reviewUI.setVisible(true);
     }
 }
-
