@@ -109,7 +109,6 @@ public class MovieUI extends JFrame {
         recommendButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                friendWindow.getContentPane().removeAll();
                 //JOptionPane.showMessageDialog(MovieUI.this, "Recommend to Friend button clicked");
                 friendWindow = new JFrame("Friends: ");
                 friendWindow.setSize(200,500);

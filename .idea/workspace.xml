@@ -4,24 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8cfd4444-07e2-410d-aff7-1860305bac7c" name="Changes" comment="Movie Recommendation with Cards">
-      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/postgresql_42_7_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/qaplug_profiles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/movie.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/movie.db" afterDir="false" />
+    <list default="true" id="9bc02ea7-63ba-451a-a862-06a9a4975279" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/2311.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/MovieRecommendationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/MovieRecommendationPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/LoginUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/LoginUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MovieUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MovieUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/DbFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/DbFunctions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/MovieRecommendationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/MovieRecommendationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Services/MovieRecommendationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/RecommendToFriendService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/BrowseMovieUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/BrowseMovieUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/Dashboard/CenterPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/Dashboard/CenterPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/Dashboard/Dashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/Dashboard/Dashboard.class" afterDir="false" />
@@ -58,7 +47,7 @@
       <change beforePath="$PROJECT_DIR$/target/classes/Services/CommentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/CommentService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Services/DbFunctions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/DbFunctions.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Services/FriendService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/FriendService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Services/MovieRecommendationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/MovieRecommendationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Services/MovieRecommendationService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Services/MovieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/MovieService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Services/RecentlyViewdService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/RecentlyViewdService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Services/RecommendationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Services/RecommendationService.class" afterDir="false" />
@@ -74,73 +63,42 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="ITR2" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="KEEP" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 6
-}</component>
-  <component name="ProjectId" id="2dYiu0noJ0gcqiG3LZOyZ2u55Ey" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2eO4v2tBt5QP95jU20G1sOKuESG" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.IntegrationTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.IntegrationTest.testFriendAndRecentlyViewedFlow.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.untitled [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.untitled [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.untitled [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.untitled [test].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.untitled [validate].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;ITR3&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/school/EECS 2311/2311/src/main/database&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "ITR3",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "run.code.analysis.last.selected.profile": "pProject Default"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\school\EECS 2311\2311\src\main\database" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\school\EECS 2311\2311\src\main\java\Tests\IntegrationTests" />
-      <recent name="C:\school\EECS 2311\2311\src\main\java\Tests\JunitTests" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="GUI.Dashboard" />
-      <recent name="Services" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.Main">
+}]]></component>
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="untitled" />
@@ -148,156 +106,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="untitled" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.IntegrationTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests.IntegrationTests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.IntegrationTests.IntegrationTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="IntegrationTest.testFriendAndRecentlyViewedFlow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="untitled" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.IntegrationTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests.IntegrationTests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.IntegrationTests.IntegrationTest" />
-      <option name="METHOD_NAME" value="testFriendAndRecentlyViewedFlow" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.IntegrationTest" />
-        <item itemvalue="JUnit.IntegrationTest.testFriendAndRecentlyViewedFlow" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8cfd4444-07e2-410d-aff7-1860305bac7c" name="Changes" comment="" />
-      <created>1710191630891</created>
+      <changelist id="9bc02ea7-63ba-451a-a862-06a9a4975279" name="Changes" comment="" />
+      <created>1711762518092</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1710191630891</updated>
+      <updated>1711762518092</updated>
     </task>
-    <task id="LOCAL-00001" summary="Working friends list">
-      <option name="closed" value="true" />
-      <created>1710204274311</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1710204274311</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Planning Doc ITR2 added">
-      <option name="closed" value="true" />
-      <created>1710357418390</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1710357418390</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Unit Testing">
-      <option name="closed" value="true" />
-      <created>1710381777011</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1710381777011</updated>
-    </task>
-    <task id="LOCAL-00004" summary="UML Diagram ITR2">
-      <option name="closed" value="true" />
-      <created>1710386122259</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1710386122259</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Rollback to UnitTesting(broken integration tests)">
-      <option name="closed" value="true" />
-      <created>1711174442078</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1711174442079</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Friend Request feature basic implementation">
-      <option name="closed" value="true" />
-      <created>1711174605940</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1711174605940</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Working Movie Recommend feature">
-      <option name="closed" value="true" />
-      <created>1711333367367</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1711333367367</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Movie Recommendation+Friend Requests(both working)">
-      <option name="closed" value="true" />
-      <created>1711334593118</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1711334593118</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Working friends list" />
-    <MESSAGE value="Planning Doc ITR2 added" />
-    <MESSAGE value="Unit Testing" />
-    <MESSAGE value="UML Diagram ITR2" />
-    <MESSAGE value="Rollback to UnitTesting(broken integration tests)" />
-    <MESSAGE value="Friend Request feature basic implementation" />
-    <MESSAGE value="Working Movie Recommend feature" />
-    <MESSAGE value="Movie Recommendation+Friend Requests(both working)" />
-    <MESSAGE value="Movie Recommendation with Cards" />
-    <option name="LAST_COMMIT_MESSAGE" value="Movie Recommendation with Cards" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="5" />
-        </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.sql.SQLException" package="java.sql" />
-          <option name="timeStamp" value="6" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

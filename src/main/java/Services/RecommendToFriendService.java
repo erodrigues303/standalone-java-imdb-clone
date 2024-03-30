@@ -8,10 +8,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-public class MovieRecommendationService {
+public class RecommendToFriendService {
     private User user;
 
     // Method to retrieve recommended movies from the database
@@ -33,12 +32,11 @@ public class MovieRecommendationService {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println(recommendedMovies);
         return recommendedMovies;
     }
     public static List<String> getRecommendationsByMovie(String movieName) {
         List<String> recommenders = new ArrayList<>();
-        String sql = "SELECT user_name FROM MovieRecommendations WHERE movie_name = ?";
+        String sql = "SELECT DISTINCT user_name FROM Movie_recommendation WHERE movie_name = ?";
 
         try (Connection conn = DbFunctions.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
