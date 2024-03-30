@@ -12,15 +12,16 @@ import java.util.HashMap;
 import java.util.List;
 
 public class MovieRecommendationService {
+    private User user;
 
     // Method to retrieve recommended movies from the database
-    public static List<Movie> getRecommendedMovies(String userName) {
+    public static List<Movie> getRecommendedMovies(User user) {
         List<Movie> recommendedMovies = new ArrayList<>();
         String sql = "SELECT * FROM Movies WHERE title IN (SELECT movie_name FROM Movie_recommendation WHERE friend_name = ?)";
 
         try (Connection conn = DbFunctions.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, userName);
+            pstmt.setString(1, user.getUsername());
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {

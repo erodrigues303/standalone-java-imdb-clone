@@ -109,7 +109,7 @@ public class MovieUI extends JFrame {
         recommendButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Logic to handle recommendation
+                friendWindow.getContentPane().removeAll();
                 //JOptionPane.showMessageDialog(MovieUI.this, "Recommend to Friend button clicked");
                 friendWindow = new JFrame("Friends: ");
                 friendWindow.setSize(200,500);
@@ -121,16 +121,15 @@ public class MovieUI extends JFrame {
                 friendsList.setEditable(false);
                 JScrollPane scrollPane = new JScrollPane(friendsList);
                 friendWindow.add(scrollPane, BorderLayout.CENTER);
-                updateFriends();
-
 
                 friendWindow.setVisible(true);
-            }
+                updateFriends(user);
 
+            }
         });
         buttonPanel.add(recommendButton);
     }
-    private void updateFriends() {
+   public void updateFriends(User user) {
         ArrayList<Integer> friendIds = (ArrayList<Integer>) FriendService.getFriends(user.getUserId());
 
         // Clear previous content
@@ -138,7 +137,7 @@ public class MovieUI extends JFrame {
 
         JPanel friendPanel = new JPanel();
         friendPanel.setLayout(new GridLayout(friendIds.size(), 1));
-
+        friendWindow.getContentPane().removeAll();
         for (int friendId : friendIds) {
             // Fetch friend's name based on their ID
             User friend = UserService.getUserById(friendId);

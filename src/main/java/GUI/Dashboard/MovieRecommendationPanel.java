@@ -39,7 +39,7 @@ public class MovieRecommendationPanel extends JPanel {
     }
 
     private void displayRecommendedMovies() {
-        List<Movie> recommendedMovies = MovieRecommendationService.getRecommendedMovies(user.getUsername());
+        List<Movie> recommendedMovies = MovieRecommendationService.getRecommendedMovies(user);
 
         JPanel movieCardsPanel = new JPanel(new GridLayout(2, 3, 10, 10));
         for (Movie movie : recommendedMovies) {
@@ -53,16 +53,5 @@ public class MovieRecommendationPanel extends JPanel {
         movieListFrame.pack();
         movieListFrame.setLocationRelativeTo(null);
         movieListFrame.setVisible(true);
-    }
-
-    // Method to update the current user
-    public void updateUser(User user) {
-        this.user = user;
-        // Update friends window
-        updateFriends();
-    }
-
-    private void updateFriends() {
-        friendWindow.getContentPane().removeAll();
     }
 }

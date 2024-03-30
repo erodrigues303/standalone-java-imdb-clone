@@ -16,6 +16,7 @@ public class LoginUI extends JFrame {
     private JButton loginButton;
     private JButton registerButton;
     private UserService userService = new UserService();
+
     public LoginUI() {
         setTitle("Login");
         setSize(300, 200);
