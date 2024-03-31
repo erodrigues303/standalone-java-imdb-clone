@@ -6,13 +6,16 @@ public class Comment {
     private String commentText;
     private int upvotes;
     private int downvotes;
+    private int reviewId;
 
-    public Comment(int commentId, int userId, String commentText, int upvotes, int downvotes) {
+
+    public Comment(int commentId, int userId, String commentText, int upvotes, int downvotes, int reviewId) {
         this.commentId = commentId;
         this.userId = userId;
         this.commentText = commentText;
         this.upvotes = upvotes;
         this.downvotes = downvotes;
+        this.reviewId = reviewId;
     }
 
     public int getCommentId() {
@@ -54,4 +57,6 @@ public class Comment {
     public void setDownvotes(int downvotes) {
         this.downvotes = downvotes;
     }
+    public int getReviewId() { return reviewId; }
+    public void setReviewId(int reviewId) { this.reviewId = reviewId; }
 }

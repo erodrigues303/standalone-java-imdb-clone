@@ -1,5 +1,7 @@
 package GUI;
 
+import GUI.Reviews.LeaveReviewUI;
+import GUI.Reviews.ReviewsUI;
 import Models.Movie;
 import Models.User;
 import Services.DbFunctions;
@@ -100,7 +102,7 @@ public class MovieUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Logic to handle rating
-                openReviewsUI(movie);
+                openReviewsUI(movie, user);
             }
         });
         buttonPanel.add(rateButton);
@@ -203,8 +205,8 @@ public class MovieUI extends JFrame {
         reviewUI.setVisible(true);
     }
 
-    public void openReviewsUI(Movie movie) {
-        ReviewsUI reviewUI = new ReviewsUI(movie);
+    public void openReviewsUI(Movie movie, User user) {
+        ReviewsUI reviewUI = new ReviewsUI(movie, user);
         reviewUI.setVisible(true);
     }
 }
