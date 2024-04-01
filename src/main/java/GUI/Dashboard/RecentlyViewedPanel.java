@@ -56,8 +56,15 @@ public class RecentlyViewedPanel extends JPanel {
 
     private void openFriendsList() {
         java.util.List<Integer> friendIDs = FriendService.getFriends(user.getUserId());
+
         JDialog friendsDialog = new JDialog((Frame) SwingUtilities.getWindowAncestor(this), "Choose Friend", true);
         friendsDialog.setLayout(new GridLayout(friendIDs.size(), 1)); // Adjust the layout
+        if (friendIDs.isEmpty()) {
+            JOptionPane.showMessageDialog(friendsDialog,
+                    "Friends list is empty. Please add friends to see what they've watched.", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
         for (Integer friendID : friendIDs) {
             JButton friendButton = new JButton(UserService.getUserById(friendID).getUsername());
@@ -84,7 +91,11 @@ public class RecentlyViewedPanel extends JPanel {
         List<Movie> friendRecentlyViewedMovies = userService.getUserByUsername(friendUsername).getRecentlyViewed();
 
         JPanel movieCardsPanel = new JPanel(new GridLayout(0, 2, 10, 10)); // Change to single column layout
-
+        if (friendRecentlyViewedMovies.isEmpty()) {
+            JOptionPane.showMessageDialog(movieCardsPanel, "This user has not viewed any movies yet", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         for (Movie movie : friendRecentlyViewedMovies) {
             JPanel movieCardPanel = new JPanel(new BorderLayout());
 

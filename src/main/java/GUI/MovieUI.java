@@ -3,6 +3,7 @@ package GUI;
 import GUI.Reviews.LeaveReviewUI;
 import GUI.Reviews.ReviewsUI;
 import Models.Movie;
+import Models.Review;
 import Models.User;
 import Services.FriendService;
 import Services.RecommendToFriendService;
@@ -10,7 +11,9 @@ import Services.UserService;
 import Utilities.MovieUtils;
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 import java.awt.event.ActionListener;
+import Services.ReviewService;
 
 import java.util.ArrayList;
 
@@ -118,6 +121,12 @@ public class MovieUI extends JFrame {
             friendWindow.setSize(200, 500);
             friendWindow.setLocationRelativeTo(null);
         }
+        if (updateFriends(user) == 0) {
+            JOptionPane.showMessageDialog(friendWindow,
+                    "Friends list is empty. Please add friends to recommend them movies.", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
         JLabel titleLabel = new JLabel("Friends: ");
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -128,19 +137,25 @@ public class MovieUI extends JFrame {
         friendsList.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(friendsList);
         friendWindow.add(scrollPane, BorderLayout.CENTER);
-
         friendWindow.setVisible(true);
-        updateFriends(user);
+
     }
 
-    public void updateFriends(User user) {
+    public int updateFriends(User user) {
         ArrayList<Integer> friendIds = (ArrayList<Integer>) FriendService.getFriends(user.getUserId());
-        refreshFriendWindow(friendIds);
+        if (refreshFriendWindow(friendIds) == 0)
+            return 0;
+        else
+            return 1;
     }
 
-    private void refreshFriendWindow(ArrayList<Integer> friendIds) {
+    private int refreshFriendWindow(ArrayList<Integer> friendIds) {
         // Ensure the friend window is initialized here (if not part of
         // showFriendWindow)
+        if (friendIds.isEmpty()) {
+
+            return 0;
+        }
 
         JPanel friendPanel = new JPanel(new GridLayout(friendIds.size(), 1));
 
@@ -155,6 +170,7 @@ public class MovieUI extends JFrame {
         }
 
         replaceFriendPanel(friendPanel);
+        return 1;
     }
 
     private void replaceFriendPanel(JPanel newPanel) {
@@ -186,6 +202,14 @@ public class MovieUI extends JFrame {
     }
 
     public void openReviewsUI(Movie movie, User user) {
+        ReviewService reviewService = new ReviewService();
+        List<Review> reviews = reviewService.getReviewsByMovieId(movie.getMovieId());
+        if (reviews.isEmpty()) {
+            JOptionPane.showMessageDialog(friendWindow,
+                    "This movie has no reviews yet. Be the first to leave one!", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         ReviewsUI reviewUI = new ReviewsUI(movie, user);
         reviewUI.setVisible(true);
     }

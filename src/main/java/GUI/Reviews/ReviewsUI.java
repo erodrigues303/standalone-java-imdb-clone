@@ -16,10 +16,12 @@ public class ReviewsUI extends JFrame {
     private Movie movie;
     private User user;
     private JPanel reviewsPanel;
+    private ReviewService reviewService = new ReviewService();
 
     public ReviewsUI(Movie movie, User user) {
         this.movie = movie;
         this.user = user;
+
         setTitle("Reviews for " + movie.getTitle());
         setSize(700, 300);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -33,9 +35,14 @@ public class ReviewsUI extends JFrame {
 
     private void displayReviews(int movieId) {
         reviewsPanel.removeAll();
-        ReviewService reviewService = new ReviewService();
         try {
             List<Review> reviews = reviewService.getReviewsByMovieId(movieId);
+            if (reviews.isEmpty()) {
+                JOptionPane.showMessageDialog(reviewsPanel,
+                        "Friends list is empty. Please add friends to see what they've watched.", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             for (Review review : reviews) {
                 JPanel reviewPanel = new JPanel();
                 reviewPanel.setLayout(new BorderLayout());
