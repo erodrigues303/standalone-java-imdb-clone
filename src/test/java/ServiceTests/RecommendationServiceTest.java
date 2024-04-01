@@ -1,4 +1,4 @@
-package jUnitTests;
+package ServiceTests;
 
 import Models.Movie;
 import Models.User;
