@@ -16,6 +16,7 @@ public class FriendsPanel extends JPanel {
     private UserService userService; // Assuming UserService provides methods to fetch user details
     private JTextArea friendsListArea;
     private JTextField usernameField;
+    private Component CenterPanel;
 
     public FriendsPanel(User user) {
         this.user = user;
@@ -136,6 +137,10 @@ public class FriendsPanel extends JPanel {
     }
 
     private void openFriendRequestsUI(ActionEvent e) {
+        if (FriendService.getReceivedFriendRequests(user.getUserId()).isEmpty()) {
+            JOptionPane.showMessageDialog(CenterPanel, "You have no Friend Requests right now.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         JFrame frame = new JFrame("Friend Requests");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().add(new FriendRequestsUI(user, friendsService, userService, this));

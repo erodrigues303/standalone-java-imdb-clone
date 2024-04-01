@@ -4,44 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67c47718-5364-424f-950c-7c748899fee7" name="Changes" comment="Refactoring">
+    <list default="true" id="67c47718-5364-424f-950c-7c748899fee7" name="Changes" comment="Test cases fixed">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Utilities/FriendUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Utilities/MovieUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/test.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/GUI/Dashboard/RecentlyViewedPanel$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Utilities/MovieUtils$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Utilities/MovieUtils$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Utilities/MovieUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/ServiceTests/FriendServiceTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/jUnitTests/CommentTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/jUnitTests/MovieTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/jUnitTests/ReviewTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/jUnitTests/UserTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/movie.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/movie.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/BrowseMovieUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/BrowseMovieUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/CenterPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/CenterPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/Dashboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/FriendsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/FriendsPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/HeaderPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/HeaderPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/MovieRecommendationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/MovieRecommendationPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/RecentlyViewedPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/RecentlyViewedPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/SearchPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Dashboard/SearchPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/FriendRequestsUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/FriendRequestsUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/LoginUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/LoginUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/MovieUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/MovieUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Reviews/CommentsUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Reviews/CommentsUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Reviews/LeaveCommentUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Reviews/LeaveCommentUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Reviews/LeaveReviewUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Reviews/LeaveReviewUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI/Reviews/ReviewsUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI/Reviews/ReviewsUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Comment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/CommentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/DbFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/DbFunctions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/FriendService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/FriendService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/MovieManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/MovieManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/MovieService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/RecentlyViewdService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/RecentlyViewdService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/RecommendToFriendService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/RecommendToFriendService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/RecommendationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/RecommendationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/ReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ServiceTests/FriendServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ServiceTests/FriendServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/jUnitTests/CommentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/jUnitTests/CommentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/jUnitTests/MovieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/jUnitTests/MovieTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/jUnitTests/ReviewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/jUnitTests/ReviewTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/jUnitTests/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/jUnitTests/UserTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/BrowseMovieUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/BrowseMovieUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/Dashboard/CenterPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/Dashboard/CenterPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GUI/Dashboard/Dashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GUI/Dashboard/Dashboard.class" afterDir="false" />
@@ -110,6 +89,7 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "JUnit.FriendServiceTest.executor": "Run",
+    "JUnit.FriendServiceTest.testGetReceivedFriendRequests.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "ITR3-Final",
@@ -118,7 +98,7 @@
     "last_opened_file_path": "C:/school/EECS 2311/2311/2311"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.FriendServiceTest.testGetReceivedFriendRequests">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="untitled" />
@@ -172,9 +152,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.FriendServiceTest.testGetReceivedFriendRequests" />
         <item itemvalue="JUnit.FriendServiceTest" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -187,10 +167,28 @@
       <option name="presentableId" value="Default" />
       <updated>1711942567102</updated>
     </task>
+    <task id="LOCAL-00001" summary="Refactoring">
+      <option name="closed" value="true" />
+      <created>1711943519942</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1711943519942</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Test cases fixed">
+      <option name="closed" value="true" />
+      <created>1711943543532</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1711943543532</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring" />
+    <MESSAGE value="Test cases fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test cases fixed" />
   </component>
 </project>

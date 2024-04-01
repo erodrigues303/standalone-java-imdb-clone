@@ -13,6 +13,7 @@ import java.util.List;
 
 public class MovieRecommendationPanel extends JPanel {
     private User user;
+    private Component CenterPanel;
 
     public MovieRecommendationPanel(User user) {
         this.user = user;
@@ -34,8 +35,12 @@ public class MovieRecommendationPanel extends JPanel {
     }
 
     private void displayRecommendedMovies() {
-        List<Movie> recommendedMovies = RecommendToFriendService.getRecommendedMovies(user);
 
+        List<Movie> recommendedMovies = RecommendToFriendService.getRecommendedMovies(user);
+        if (recommendedMovies.isEmpty()) {
+            JOptionPane.showMessageDialog(CenterPanel, "You have no Recommended Movies", "", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         JPanel movieCardsPanel = new JPanel(new GridLayout(0, 3, 10, 10)); // Change to single column layout
 
         for (Movie movie : recommendedMovies) {
