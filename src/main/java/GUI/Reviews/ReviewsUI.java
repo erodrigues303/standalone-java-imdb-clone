@@ -9,15 +9,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ReviewsUI extends JFrame {
 
     private Movie movie;
     private User user;
     private JPanel reviewsPanel;
-    private int likeClickCount = 0;
-    private int dislikeClickCount = 0;
+    private Map<Review, Integer> likeCounts;
+    private Map<Review, Integer> dislikeCounts;
 
     public ReviewsUI(Movie movie, User user) {
         this.movie = movie;
@@ -27,8 +29,8 @@ public class ReviewsUI extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         reviewsPanel = new JPanel();
         reviewsPanel.setLayout(new BoxLayout(reviewsPanel, BoxLayout.Y_AXIS));
-        likeClickCount = 0;
-        dislikeClickCount = 0;
+        likeCounts = new HashMap<>();
+        dislikeCounts = new HashMap<>();
         displayReviews(movie.getMovieId());
         JScrollPane scrollPane = new JScrollPane(reviewsPanel);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -52,36 +54,47 @@ public class ReviewsUI extends JFrame {
                 JButton likeButton = new JButton("Like");
                 JButton dislikeButton = new JButton("Dislike");
                 JButton openThreadButton = new JButton("Open Comments");
+
+                likeCounts.put(review, 0); // Initialize like count for this review
+                dislikeCounts.put(review, 0); // Initialize dislike count for this review
+
                 likeButton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        if (likeClickCount % 2 == 0) {
+                        int likeCount = likeCounts.getOrDefault(review, 0);
+                        if (likeCount % 2 == 0) {
                             review.addLikes();
+                            likesCountLabel.setText("Likes: " + review.getLikes());
                         } else {
                             review.subtractLikes();
+                            likesCountLabel.setText("Likes: " + review.getLikes());
                         }
-                        updateReviewsPanel(movie);
-                        likeClickCount ++;
+                        likeCounts.put(review, likeCount + 1);
                     }
                 });
+
                 dislikeButton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        if (dislikeClickCount % 2 == 0){
+                        int dislikeCount = dislikeCounts.getOrDefault(review, 0);
+                        if (dislikeCount % 2 == 0){
                             review.addDislikes();
+                            dislikesCountLabel.setText("Dislikes: " + review.getDislikes());
                         } else {
                             review.subtractDislikes();
+                            dislikesCountLabel.setText("Dislikes: " + review.getDislikes());
                         }
-                        updateReviewsPanel(movie);
-                        dislikeClickCount++;
+                        dislikeCounts.put(review, dislikeCount + 1);
                     }
                 });
+
                 openThreadButton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         openCommentsUI(review, user);
                     }
                 });
+
                 buttonPanel.add(likeButton);
                 buttonPanel.add(likesCountLabel);
                 buttonPanel.add(dislikeButton);
@@ -93,7 +106,6 @@ public class ReviewsUI extends JFrame {
                 reviewPanel.add(buttonPanel, BorderLayout.EAST);
                 reviewsPanel.add(reviewPanel);
                 reviewsPanel.add(Box.createRigidArea(new Dimension(0, 100)));
-
             }
         } catch (Exception ex) {
             ex.printStackTrace();
