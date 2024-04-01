@@ -2,14 +2,13 @@ package GUI.Dashboard;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
 
 import GUI.BrowseMovieUI;
 import Models.Movie;
 import Models.User;
-import Services.*;
+import Services.MovieService;
+import Services.RecommendationService;
 
 public class Dashboard extends JFrame {
     private static Dashboard instance;
@@ -37,6 +36,7 @@ public class Dashboard extends JFrame {
         headerPanel = new HeaderPanel(user);
         searchPanel = new SearchPanel();
         recentlyViewedPanel = new RecentlyViewedPanel(user);
+        CenterPanel centerPanel;
         centerPanel = new CenterPanel(recommendationService, user, this);
         friendsPanel = new FriendsPanel(user);
         mPanel = new MovieRecommendationPanel(user);
@@ -69,7 +69,7 @@ public class Dashboard extends JFrame {
         centralPanel.add(mPanel, BorderLayout.SOUTH);
 
         // Add CenterPanel to the center
-        CenterPanel centerPanel = new CenterPanel(recommendationService, user, this);
+        centerPanel = new CenterPanel(recommendationService, user, this);
         centralPanel.add(centerPanel, BorderLayout.CENTER);
 
         mainPanel.add(centralPanel);
@@ -95,6 +95,4 @@ public class Dashboard extends JFrame {
     public RecentlyViewedPanel getRecentlyViewedPanel() {
         return recentlyViewedPanel;
     }
-
-
 }

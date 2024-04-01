@@ -1,8 +1,10 @@
 package Services;
+
 import Models.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
 public class CommentService {
 
     public Comment resultSetToComment(ResultSet rs) throws SQLException {
@@ -12,6 +14,7 @@ public class CommentService {
         int upvotes = rs.getInt("upvotes");
         int downvotes = rs.getInt("downvotes");
         int reviewId = rs.getInt("review_id");
+
         // Assuming the Comment model has a corresponding constructor
         Comment comment = new Comment(commentId, userId, commentText, upvotes, downvotes, reviewId);
         return comment;
@@ -21,7 +24,7 @@ public class CommentService {
         List<Comment> comments = new ArrayList<>();
         String sql = "SELECT * FROM Comments WHERE user_id = ?";
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, userId);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
@@ -37,7 +40,7 @@ public class CommentService {
     public boolean addComment(int userId, Comment comment) {
         String sql = "INSERT INTO Comments (user_id, comment_text, upvotes, downvotes, review_id) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, userId);
             pstmt.setString(2, comment.getCommentText());
             pstmt.setInt(3, comment.getUpvotes());
@@ -50,12 +53,11 @@ public class CommentService {
         }
     }
 
-
     public List<Comment> getCommentsByReviewId(int reviewId) {
         List<Comment> comments = new ArrayList<>();
         String sql = "SELECT * FROM Comments WHERE review_id = ?";
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, reviewId);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
@@ -73,7 +75,7 @@ public class CommentService {
         String sql = "SELECT * FROM Users WHERE user_id = ?";
         String username = null;
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, userID);
             ResultSet rs = pstmt.executeQuery();
             username = rs.getString("username");

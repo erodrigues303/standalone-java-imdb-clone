@@ -1,8 +1,6 @@
 package Services;
 
 import Models.Review;
-import Models.User;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,7 +28,7 @@ public class ReviewService {
         List<Review> reviews = new ArrayList<>();
         String sql = "SELECT * FROM Reviews WHERE user_id = ?";
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, userId);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
@@ -48,7 +46,7 @@ public class ReviewService {
         List<Review> reviews = new ArrayList<>();
         String sql = "SELECT * FROM Reviews WHERE movie_id = ?";
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, movieId);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
@@ -60,10 +58,11 @@ public class ReviewService {
         }
         return reviews;
     }
+
     public Review getReviewByReviewId(int reviewId) {
         String sql = "SELECT * FROM Reviews WHERE review_id = ?";
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, reviewId);
             ResultSet rs = pstmt.executeQuery();
             // Assuming a method that converts a ResultSet row to a Review object
@@ -78,7 +77,7 @@ public class ReviewService {
     public boolean addReview(int userId, Review review) {
         String sql = "INSERT INTO Reviews (user_id, movie_id, review_text, rating) VALUES (?, ?, ?, ?)";
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, userId);
             pstmt.setInt(2, review.getMovieId());
             pstmt.setString(3, review.getReviewText());
@@ -95,7 +94,7 @@ public class ReviewService {
         String sql = "SELECT * FROM Users WHERE user_id = ?";
         String username = null;
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, userID);
             ResultSet rs = pstmt.executeQuery();
             // Assuming a method that converts a ResultSet row to a Review object

@@ -1,12 +1,9 @@
 package GUI.Reviews;
 
-import GUI.Reviews.ReviewsUI;
 import Models.Comment;
-import Models.Movie;
 import Models.Review;
 import Models.User;
 import Services.CommentService;
-import Services.ReviewService;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

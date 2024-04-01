@@ -4,19 +4,14 @@ import GUI.Reviews.LeaveReviewUI;
 import GUI.Reviews.ReviewsUI;
 import Models.Movie;
 import Models.User;
-import Services.DbFunctions;
 import Services.FriendService;
+import Services.RecommendToFriendService;
 import Services.UserService;
-
+import Utilities.MovieUtils;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+
 import java.util.ArrayList;
 
 public class MovieUI extends JFrame {
@@ -60,11 +55,20 @@ public class MovieUI extends JFrame {
     }
 
     private void initComponents() {
-        setLayout(new BorderLayout());
+        configureMainPanel();
+        initializeMovieDetailsPanel();
+        initializeButtonPanel();
+    }
 
+    private void configureMainPanel() {
+        setLayout(new BorderLayout());
+        setSize(500, 600);
+        setLocationRelativeTo(null);
+    }
+
+    private void initializeMovieDetailsPanel() {
         JPanel movieDetailsPanel = new JPanel();
         movieDetailsPanel.setLayout(new BoxLayout(movieDetailsPanel, BoxLayout.Y_AXIS));
-        add(movieDetailsPanel, BorderLayout.CENTER);
 
         titleLabel = new JLabel();
         movieDetailsPanel.add(titleLabel);
@@ -84,114 +88,90 @@ public class MovieUI extends JFrame {
         descriptionLabel = new JLabel();
         movieDetailsPanel.add(descriptionLabel);
 
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        add(buttonPanel, BorderLayout.SOUTH);
+        add(movieDetailsPanel, BorderLayout.CENTER);
+    }
 
-        leaveReviewButton = new JButton("Leave Review");
-        leaveReviewButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Logic to handle leaving review
-                openLeaveReviewUI(user, movie);
-            }
-        });
+    private void initializeButtonPanel() {
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+
+        leaveReviewButton = createButton("Leave Review", e -> openLeaveReviewUI(user, movie));
         buttonPanel.add(leaveReviewButton);
 
-        rateButton = new JButton("Read Reviews");
-        rateButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Logic to handle rating
-                openReviewsUI(movie, user);
-            }
-        });
+        rateButton = createButton("Read Reviews", e -> openReviewsUI(movie, user));
         buttonPanel.add(rateButton);
 
-        recommendButton = new JButton("Recommend to Friend");
-        recommendButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //JOptionPane.showMessageDialog(MovieUI.this, "Recommend to Friend button clicked");
-                friendWindow = new JFrame("Friends: ");
-                friendWindow.setSize(200,500);
-                JLabel titleLabel = new JLabel("Friends: ");
-                titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
-                titleLabel.setFont(new Font("Arial", Font.BOLD, 16));
-                friendWindow.add(titleLabel,BorderLayout.NORTH);
-                friendsList = new JTextArea();
-                friendsList.setEditable(false);
-                JScrollPane scrollPane = new JScrollPane(friendsList);
-                friendWindow.add(scrollPane, BorderLayout.CENTER);
-
-                friendWindow.setVisible(true);
-                updateFriends(user);
-
-            }
-        });
+        recommendButton = createButton("Recommend to Friend", e -> showFriendWindow());
         buttonPanel.add(recommendButton);
+
+        add(buttonPanel, BorderLayout.SOUTH);
     }
-   public void updateFriends(User user) {
+
+    private JButton createButton(String text, ActionListener actionListener) {
+        JButton button = new JButton(text);
+        button.addActionListener(actionListener);
+        return button;
+    }
+
+    private void showFriendWindow() {
+        if (friendWindow == null) {
+            friendWindow = new JFrame("Friends: ");
+            friendWindow.setSize(200, 500);
+            friendWindow.setLocationRelativeTo(null);
+        }
+
+        JLabel titleLabel = new JLabel("Friends: ");
+        titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        friendWindow.add(titleLabel, BorderLayout.NORTH);
+
+        friendsList = new JTextArea();
+        friendsList.setEditable(false);
+        JScrollPane scrollPane = new JScrollPane(friendsList);
+        friendWindow.add(scrollPane, BorderLayout.CENTER);
+
+        friendWindow.setVisible(true);
+        updateFriends(user);
+    }
+
+    public void updateFriends(User user) {
         ArrayList<Integer> friendIds = (ArrayList<Integer>) FriendService.getFriends(user.getUserId());
+        refreshFriendWindow(friendIds);
+    }
 
-        // Clear previous content
-        friendWindow.getContentPane().removeAll();
+    private void refreshFriendWindow(ArrayList<Integer> friendIds) {
+        // Ensure the friend window is initialized here (if not part of
+        // showFriendWindow)
 
-        JPanel friendPanel = new JPanel();
-        friendPanel.setLayout(new GridLayout(friendIds.size(), 1));
-        friendWindow.getContentPane().removeAll();
+        JPanel friendPanel = new JPanel(new GridLayout(friendIds.size(), 1));
+
         for (int friendId : friendIds) {
-            // Fetch friend's name based on their ID
             User friend = UserService.getUserById(friendId);
             if (friend != null) {
                 JButton friendButton = new JButton(friend.getUsername());
-                friendButton.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        // Handle button click (recommendation logic or any other action)
-                        String sql = "INSERT INTO Movie_recommendation (user_name, friend_name, movie_name) VALUES (?, ?, ?)";
-
-                        try (Connection conn = DbFunctions.connect();
-                             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                            pstmt.setString(1, user.getUsername());
-                            pstmt.setString(2, friendButton.getText());
-                            pstmt.setString(3, movie.getTitle());
-
-                            // Execute the SQL statement
-                            pstmt.executeUpdate();
-                        } catch (SQLException ex) {
-                            throw new RuntimeException(ex);
-                        }
-                    }
-                });
+                friendButton.addActionListener(
+                        e -> RecommendToFriendService.sendRecommendation(user, friend.getUsername(), movie));
                 friendPanel.add(friendButton);
             }
         }
 
-        JScrollPane scrollPane = new JScrollPane(friendPanel);
+        replaceFriendPanel(friendPanel);
+    }
+
+    private void replaceFriendPanel(JPanel newPanel) {
+        friendWindow.getContentPane().removeAll();
+        JScrollPane scrollPane = new JScrollPane(newPanel);
         friendWindow.getContentPane().add(scrollPane, BorderLayout.CENTER);
-        friendWindow.revalidate(); // Revalidate the window
-        friendWindow.repaint(); // Repaint the window
+        friendWindow.revalidate();
+        friendWindow.repaint();
     }
 
     private void populateMovieDetails() {
         titleLabel.setText("Title: " + movie.getTitle());
         releaseDateLabel.setText("Release Date: " + movie.getReleaseYear());
         ratingLabel.setText("Rating: " + movie.getRating());
-        loadImage(movie.getCoverImageUrl(), coverImageLabel);
+        MovieUtils.loadImage(movie.getCoverImageUrl(), coverImageLabel);
         descriptionLabel.setText("<html>Description: " + movie.getDescription() + "</html>");
         genreLabel.setText(movie.getGenre());
-    }
-
-    private void loadImage(String imageUrl, JLabel imageLabel) {
-        try {
-            URL url = new URL(imageUrl);
-            ImageIcon icon = new ImageIcon(url);
-            Image scaledImage = icon.getImage().getScaledInstance(150, -1, Image.SCALE_SMOOTH);
-            icon = new ImageIcon(scaledImage);
-            imageLabel.setIcon(icon);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
     }
 
     public void updateMovieDetails(Movie movie) {

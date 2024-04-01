@@ -1,6 +1,6 @@
 package GUI.Reviews;
+
 import Models.Comment;
-import Models.Movie;
 import Models.Review;
 import Models.User;
 import Services.CommentService;
@@ -18,6 +18,7 @@ public class CommentsUI extends JFrame {
     private JTextArea commentTextArea;
     private UserService userService;
     private User user;
+
     public CommentsUI(Review review, User user) {
         this.user = user;
         setTitle("Comment Section");
@@ -55,7 +56,8 @@ public class CommentsUI extends JFrame {
             parentReviewArea.append("Review: " + parentReview.getReviewText() + "\n\n");
         } catch (Exception ex) {
             ex.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error fetching parent review: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error fetching parent review: " + ex.getMessage(), "Error",
+                    JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -70,9 +72,11 @@ public class CommentsUI extends JFrame {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error fetching reviews: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error fetching reviews: " + ex.getMessage(), "Error",
+                    JOptionPane.ERROR_MESSAGE);
         }
     }
+
     private void openLeaveCommentUI(Review review, User user) {
         LeaveCommentUI leaveCommentUIUI = new LeaveCommentUI(user, review);
         leaveCommentUIUI.setVisible(true);

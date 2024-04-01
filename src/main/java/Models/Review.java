@@ -1,8 +1,6 @@
 package Models;
 
-import GUI.Reviews.CommentsUI;
 import Services.DbFunctions;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,6 +24,7 @@ public class Review {
         this.likes = 0;
         this.dislikes = 0;
     }
+
     public int getReviewId() {
         return reviewId;
     }
@@ -66,9 +65,10 @@ public class Review {
         this.rating = rating;
     }
 
-    public int getLikes() { String sql = "SELECT likes FROM Reviews WHERE review_id = ?";
+    public int getLikes() {
+        String sql = "SELECT likes FROM Reviews WHERE review_id = ?";
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, reviewId);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
@@ -79,10 +79,15 @@ public class Review {
         }
         return likes;
     }
-    public void setLikes(int likes) { this.likes = likes; }
-    public int getDislikes() {  String sql = "SELECT dislikes FROM Reviews WHERE review_id = ?";
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    public int getDislikes() {
+        String sql = "SELECT dislikes FROM Reviews WHERE review_id = ?";
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, reviewId);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
@@ -93,13 +98,17 @@ public class Review {
         }
         return dislikes;
     }
-    public void setDislikes(int dislikes) { this.dislikes = dislikes; }
+
+    public void setDislikes(int dislikes) {
+        this.dislikes = dislikes;
+    }
+
     public void addLikes() {
         int currentLikes = getLikes();
         int newLikes = currentLikes + 1;
         String sql = "UPDATE Reviews SET likes = ? WHERE review_id = ?";
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, newLikes);
             pstmt.setInt(2, reviewId);
             pstmt.executeUpdate();
@@ -107,12 +116,13 @@ public class Review {
             e.printStackTrace();
         }
     }
+
     public void addDislikes() {
         int currentDislikes = getDislikes();
         int newDislikes = currentDislikes + 1;
         String sql = "UPDATE Reviews SET dislikes = ? WHERE review_id = ?";
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, newDislikes);
             pstmt.setInt(2, reviewId);
             pstmt.executeUpdate();

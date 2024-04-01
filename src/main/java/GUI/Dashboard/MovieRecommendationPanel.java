@@ -5,16 +5,14 @@ import Models.User;
 import Services.RecommendToFriendService;
 
 import javax.swing.*;
+// import javax.swing.text.Utils;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.util.List;
 
 public class MovieRecommendationPanel extends JPanel {
     private User user;
-    private String userName;
-    private JTextArea moviesList;
-    private JFrame friendWindow;
-
 
     public MovieRecommendationPanel(User user) {
         this.user = user;
@@ -44,10 +42,10 @@ public class MovieRecommendationPanel extends JPanel {
             JPanel movieCardPanel = new JPanel(new BorderLayout());
 
             // Create movie card object using the existing method
-            JPanel movieCard = MovieUtils.createMovieCard(movie, user);
+            JPanel card = Utilities.MovieUtils.createMovieCard(movie, user);
 
             // Add movie card to the movie card panel
-            movieCardPanel.add(movieCard, BorderLayout.NORTH);
+            movieCardPanel.add(card, BorderLayout.NORTH);
 
             // Fetch recommenders for the current movie
             List<String> recommenders = RecommendToFriendService.getRecommendationsByMovie(movie.getTitle());

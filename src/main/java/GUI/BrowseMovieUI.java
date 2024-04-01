@@ -3,8 +3,6 @@ package GUI;
 import Models.Movie;
 import Models.User;
 import GUI.Dashboard.Dashboard;
-import GUI.Dashboard.MovieUtils;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
@@ -49,7 +47,7 @@ public class BrowseMovieUI extends JFrame {
             // Otherwise, display the search results
             for (Movie movie : searchResults) {
                 executorService.execute(() -> {
-                    JPanel moviePanel = MovieUtils.createMovieCard(movie, user);
+                    JPanel moviePanel = Utilities.MovieUtils.createMovieCard(movie, user);
                     SwingUtilities.invokeLater(() -> {
                         searchResultsPanel.add(moviePanel);
                         searchResultsPanel.revalidate();

@@ -4,7 +4,6 @@ import Services.CommentService;
 import Services.MovieService;
 import Services.RecentlyViewdService;
 import Services.ReviewService;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,38 +18,38 @@ public class User {
     private String password;
     private List<Movie> watchlist;
     private List<Review> reviews;
-
     private List<Comment> comments;
     private List<User> friendsList;
     private List<Movie> recentlyViewed;
-
 
     // Constructor
     public User(String username, String password) {
         this.userId = 0;
         this.username = username;
         this.password = password;
-        this.watchlist = new ArrayList<>();;
+        this.watchlist = new ArrayList<>();
+        ;
         this.reviews = new ArrayList<>();
         this.comments = new ArrayList<>();
         this.friendsList = new ArrayList<>();
         this.recentlyViewed = new ArrayList<>();
     }
 
-    public User(String username){
+    public User(String username) {
         this.userId = 0;
         this.username = username;
-//        this.password = "friend";
-//        this.watchlist = new ArrayList<>();;
-//        this.reviews = new ArrayList<>();
-//        this.comments = new ArrayList<>();
-//        this.friendsList = new ArrayList<>();
+        // this.password = "friend";
+        // this.watchlist = new ArrayList<>();;
+        // this.reviews = new ArrayList<>();
+        // this.comments = new ArrayList<>();
+        // this.friendsList = new ArrayList<>();
         this.recentlyViewed = new ArrayList<>();
     }
 
     public int getUserId() {
         return userId;
     }
+
     public void setUserId(int userId) {
         this.userId = userId;
     }
@@ -112,15 +111,20 @@ public class User {
         this.recentlyViewed = recentlyViewed;
     }
 
-    public void addFriend(User friend){
+    public void addFriend(User friend) {
         this.friendsList.add(friend);
     }
 
-    public void addReview(Review review){
+    public void removeFriend(int id) {
+
+        friendsList.removeIf(user -> user.getUserId() == id);
+    }
+
+    public void addReview(Review review) {
         this.reviews.add(review);
     }
 
-    public void addComment(Comment comment){
+    public void addComment(Comment comment) {
         this.comments.add(comment);
     }
 
@@ -155,5 +159,13 @@ public class User {
         }
     }
 
+    public boolean isFriend(int friendId) {
+        for (User friend : friendsList) {
+            if (friend.getUserId() == friendId) {
+                return true; // The user with the given friendId is found in the friendsList
+            }
+        }
+        return false; // No user with the given friendId is found in the friendsList
+    }
 
 }

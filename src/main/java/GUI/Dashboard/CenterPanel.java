@@ -1,17 +1,10 @@
 package GUI.Dashboard;
 
-import GUI.MovieUI;
 import Models.Movie;
 import Models.User;
-import Services.MovieService;
 import Services.RecommendationService;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.List;
 
 public class CenterPanel extends JPanel {
@@ -35,11 +28,10 @@ public class CenterPanel extends JPanel {
             welcomeLabel.setFont(new Font("Arial", Font.BOLD, 20));
             add(welcomeLabel);
         } else {
-            System.out.println(user.getRecentlyViewed());
             List<Movie> recommendedMovies = recommendationService.getRecommendations(user);
 
             for (Movie movie : recommendedMovies) {
-                JPanel card = MovieUtils.createMovieCard(movie, user);
+                JPanel card = Utilities.MovieUtils.createMovieCard(movie, user);
                 add(card);
             }
         }

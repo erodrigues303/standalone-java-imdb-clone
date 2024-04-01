@@ -1,6 +1,5 @@
 package GUI.Reviews;
 
-import GUI.Reviews.ReviewsUI;
 import Models.Movie;
 import Models.Review;
 import Models.User;
@@ -16,6 +15,7 @@ public class LeaveReviewUI extends JFrame {
     private final Movie movie;
     private final User user;
     private JSlider ratingSlider;
+
     public LeaveReviewUI(User user, Movie movie) {
         this.user = user;
         this.movie = movie;
@@ -42,16 +42,18 @@ public class LeaveReviewUI extends JFrame {
         headerPanel.add(welcomeLabel);
         return headerPanel;
     }
+
     private JPanel createRatingPanel() {
         JPanel ratingPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         JLabel ratingLabel = new JLabel("Rating: ");
-        ratingSlider = new JSlider(1, 5,1);
+        ratingSlider = new JSlider(1, 5, 1);
         ratingSlider.setMajorTickSpacing(1);
         ratingSlider.setPaintLabels(true);
         ratingPanel.add(ratingLabel);
         ratingPanel.add(ratingSlider);
         return ratingPanel;
     }
+
     private JPanel createReviewPanel() {
         JPanel reviewPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         JTextArea reviewArea = new JTextArea(7, 20);
@@ -64,7 +66,8 @@ public class LeaveReviewUI extends JFrame {
                 int rating = ratingSlider.getValue();
                 int likes = 0;
                 int dislikes = 0;
-                Review review = new Review(0, user.getUserId(), movie.getMovieId(), commentText, rating, likes, dislikes);
+                Review review = new Review(0, user.getUserId(), movie.getMovieId(), commentText, rating, likes,
+                        dislikes);
                 createReview(user.getUserId(), review);
                 reviewArea.setText("");
                 openReviewsUI(movie, user);
@@ -74,10 +77,12 @@ public class LeaveReviewUI extends JFrame {
         reviewPanel.add(publishButton);
         return reviewPanel;
     }
-    public void openReviewsUI (Movie movie, User user){
+
+    public void openReviewsUI(Movie movie, User user) {
         ReviewsUI reviewUI = new ReviewsUI(movie, user);
         reviewUI.setVisible(true);
     }
+
     public void createReview(int userId, Review review) {
         ReviewService reviewService = new ReviewService();
         reviewService.addReview(userId, review);

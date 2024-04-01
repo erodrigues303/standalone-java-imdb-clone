@@ -2,7 +2,6 @@ package Services;
 
 import Models.Movie;
 import Models.User;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,7 +18,7 @@ public class RecommendToFriendService {
         String sql = "SELECT * FROM Movies WHERE title IN (SELECT movie_name FROM Movie_recommendation WHERE friend_name = ?)";
 
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, user.getUsername());
             ResultSet rs = pstmt.executeQuery();
 
@@ -40,7 +39,7 @@ public class RecommendToFriendService {
         String sql = "SELECT DISTINCT user_name FROM Movie_recommendation WHERE movie_name = ?";
 
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, movieName);
             ResultSet rs = pstmt.executeQuery();
 
@@ -53,6 +52,19 @@ public class RecommendToFriendService {
         }
 
         return recommenders;
+    }
+
+    public static void sendRecommendation(User user, String friendUsername, Movie movie) {
+        String sql = "INSERT INTO Movie_recommendation (user_name, friend_name, movie_name) VALUES (?, ?, ?)";
+        try (Connection conn = DbFunctions.connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, user.getUsername());
+            pstmt.setString(2, friendUsername);
+            pstmt.setString(3, movie.getTitle());
+            pstmt.executeUpdate();
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     public static Movie resultSetToMovie(ResultSet rs) throws SQLException {
@@ -68,26 +80,4 @@ public class RecommendToFriendService {
         movie.setId(rs.getInt("movie_id"));
         return movie;
     }
-
-    public static void recommendToFriend(User recSender,User recReciever,String movieTitle){ String sql = "INSERT INTO Movie_recommendation (user_name, friend_name, movie_name) VALUES (?, ?, ?)";
-    try(
-    Connection conn = DbFunctions.connect();
-    PreparedStatement pstmt = conn.prepareStatement(sql))
-
-    {
-        pstmt.setString(1, recSender.getUsername());
-        pstmt.setString(2, recReciever.getUsername());
-        pstmt.setString(3, movieTitle);
-
-        // Execute the SQL statement
-        pstmt.executeUpdate();
-    } catch(
-    SQLException ex)
-
-    {
-        throw new RuntimeException(ex);
-    }
 }
-}
-
-

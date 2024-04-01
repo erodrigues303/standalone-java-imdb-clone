@@ -7,15 +7,19 @@ import Services.FriendService;
 import Services.UserService;
 
 import javax.swing.*;
+import javax.swing.text.Utilities;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+import Utilities.MovieUtils;
+
 public class RecentlyViewedPanel extends JPanel {
     private final JPanel recentlyViewedMoviesPanel;
     private final User user;
-    private UserService userService=new UserService();
+    private UserService userService = new UserService();
 
     public RecentlyViewedPanel(User user) {
         this.user = user;
@@ -60,7 +64,7 @@ public class RecentlyViewedPanel extends JPanel {
             friendButton.addActionListener(e -> {
                 // Handle button click (recommendation logic or any other action)
                 // Display friend's recently viewed movies
-                displayFriendRecentlyViewedMovies(UserService.getUserById(friendID).getUsername(),user);
+                displayFriendRecentlyViewedMovies(UserService.getUserById(friendID).getUsername(), user);
                 // Close the dialog after handling the action
                 friendsDialog.dispose();
             });
@@ -76,7 +80,7 @@ public class RecentlyViewedPanel extends JPanel {
         friendsDialog.setVisible(true);
     }
 
-    private void displayFriendRecentlyViewedMovies(String friendUsername,User user) {
+    private void displayFriendRecentlyViewedMovies(String friendUsername, User user) {
         List<Movie> friendRecentlyViewedMovies = userService.getUserByUsername(friendUsername).getRecentlyViewed();
 
         JPanel movieCardsPanel = new JPanel(new GridLayout(0, 2, 10, 10)); // Change to single column layout
@@ -85,7 +89,7 @@ public class RecentlyViewedPanel extends JPanel {
             JPanel movieCardPanel = new JPanel(new BorderLayout());
 
             // Create movie card object using the existing method
-            JPanel movieCard = MovieUtils.createMovieCard(movie,user);
+            JPanel movieCard = MovieUtils.createMovieCard(movie, user);
 
             // Add movie card to the movie card panel
             movieCardPanel.add(movieCard, BorderLayout.NORTH);
@@ -100,5 +104,6 @@ public class RecentlyViewedPanel extends JPanel {
         friendRecentlyViewedFrame.pack();
         friendRecentlyViewedFrame.setLocationRelativeTo(this);
         friendRecentlyViewedFrame.setVisible(true);
+        friendRecentlyViewedFrame.toFront();
     }
 }

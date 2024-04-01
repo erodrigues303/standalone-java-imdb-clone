@@ -12,7 +12,7 @@ public class DbFunctions {
 
     public static Connection connect() {
         // Assuming dbPath is your SQLite database path.
-        String dbPath = "C:\\school\\2311\\src\\main\\database\\movie.db";
+        String dbPath = "C:/school/EECS 2311/2311/2311/src/main/database/movie.db";
         try {
             // Create a new connection to the database.
             Connection connection = DriverManager.getConnection("jdbc:sqlite:" + dbPath);

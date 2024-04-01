@@ -4,7 +4,6 @@ import Models.Movie;
 import Models.Review;
 import Models.User;
 import Services.ReviewService;
-import Services.UserService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -41,8 +40,8 @@ public class ReviewsUI extends JFrame {
                 JPanel reviewPanel = new JPanel();
                 reviewPanel.setLayout(new BorderLayout());
                 JLabel userLabel = new JLabel("User: " + reviewService.getUsernameByReview(review) + "\n");
-                JLabel ratingLabel = new JLabel("Rating: " + review.getRating()+ "\n");
-                JLabel reviewTextLabel = new JLabel("Review: " + review.getReviewText()+ "\n\n");
+                JLabel ratingLabel = new JLabel("Rating: " + review.getRating() + "\n");
+                JLabel reviewTextLabel = new JLabel("Review: " + review.getReviewText() + "\n\n");
                 JLabel likesCountLabel = new JLabel("Likes: " + review.getLikes() + "\n");
                 JLabel dislikesCountLabel = new JLabel("Dislikes: " + review.getDislikes() + "\n");
                 JPanel buttonPanel = new JPanel();
@@ -81,22 +80,24 @@ public class ReviewsUI extends JFrame {
                 reviewsPanel.add(reviewPanel);
                 reviewsPanel.add(Box.createRigidArea(new Dimension(0, 100)));
 
-
             }
         } catch (Exception ex) {
             ex.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error fetching reviews: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error fetching reviews: " + ex.getMessage(), "Error",
+                    JOptionPane.ERROR_MESSAGE);
         }
         reviewsPanel.revalidate();
         reviewsPanel.repaint();
     }
+
     private void updateReviewsPanel(Movie movie) {
         reviewsPanel.removeAll();
         displayReviews(movie.getMovieId());
         reviewsPanel.revalidate();
         reviewsPanel.repaint();
     }
-    public void openCommentsUI (Review review, User user){
+
+    public void openCommentsUI(Review review, User user) {
         CommentsUI commentsUI = new CommentsUI(review, user);
         commentsUI.setVisible(true);
     }

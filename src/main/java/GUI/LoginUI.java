@@ -1,7 +1,6 @@
 package GUI;
 
 import GUI.Dashboard.Dashboard;
-//import GUI.Dashboard.DashboardUI;
 import Models.User;
 import Services.DbFunctions;
 import Services.UserService;
@@ -85,7 +84,8 @@ public class LoginUI extends JFrame {
         registrationDialog.add(regPasswordField);
 
         JButton registerConfirmButton = new JButton("Register");
-        registerConfirmButton.addActionListener(e -> registerUser(regUsernameField.getText(), new String(regPasswordField.getPassword()), registrationDialog));
+        registerConfirmButton.addActionListener(e -> registerUser(regUsernameField.getText(),
+                new String(regPasswordField.getPassword()), registrationDialog));
         registrationDialog.add(registerConfirmButton);
 
         registrationDialog.setVisible(true);
@@ -94,12 +94,12 @@ public class LoginUI extends JFrame {
     private void registerUser(String username, String password, JDialog dialog) {
         User newUser = new User(username, password);
 
-            if(userService.createUser(newUser)) {
-                JOptionPane.showMessageDialog(this, "Registration successful");
-                dialog.dispose(); // Close the registration dialog after successful registration
-            } else {
-                JOptionPane.showMessageDialog(this, "Registration failed");
-            }
+        if (userService.createUser(newUser)) {
+            JOptionPane.showMessageDialog(this, "Registration successful");
+            dialog.dispose(); // Close the registration dialog after successful registration
+        } else {
+            JOptionPane.showMessageDialog(this, "Registration failed");
+        }
 
     }
 }
