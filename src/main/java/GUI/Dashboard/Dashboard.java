@@ -50,7 +50,8 @@ public class Dashboard extends JFrame {
             Integer selectedRating = searchPanel.getSelectedRating();
 
             // Check if the search text is null or empty
-            if (searchText == null || searchText.trim().isEmpty()) {
+            if ((searchText == null || searchText.trim().isEmpty())
+                    && (genreText == null || genreText.trim().isEmpty())) {
                 // Prompt the user to enter a movie title or search keyword
                 JOptionPane.showMessageDialog(mainPanel,
                         "Please enter a movie title or search keyword.",

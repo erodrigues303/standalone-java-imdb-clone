@@ -3,6 +3,7 @@ package Services;
 import Models.*;
 import java.sql.*;
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class RecommendationService {
@@ -13,46 +14,29 @@ public class RecommendationService {
         List<Movie> recommendedMovies = new ArrayList<>();
         List<Movie> recentlyViewed = user.getRecentlyViewed();
 
-        if (recentlyViewed.size() < 2) {
+        if (recentlyViewed.isEmpty()) {
             return getDefaultRecommendations();
         } else {
-            // Original logic for recommendations based on user's recently viewed movies
-            double averageRating = recentlyViewed.stream()
-                    .mapToDouble(Movie::getRating)
-                    .average()
-                    .orElse(0.0);
-
-            Map<String, Long> genreFrequency = recentlyViewed.stream()
+            // Focus on the most common genre
+            String mostCommonGenre = recentlyViewed.stream()
                     .map(Movie::getGenre)
                     .flatMap(genre -> Arrays.stream(genre.split(", ")))
-                    .collect(Collectors.groupingBy(g -> g, Collectors.counting()));
-
-            List<String> mostCommonGenres = genreFrequency.entrySet().stream()
-                    .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
-                    .limit(2)
+                    .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                    .entrySet().stream()
+                    .max(Map.Entry.comparingByValue())
                     .map(Map.Entry::getKey)
-                    .collect(Collectors.toList());
+                    .orElse(null);
 
-            IntSummaryStatistics releaseYearStats = recentlyViewed.stream()
-                    .mapToInt(Movie::getReleaseYear)
-                    .summaryStatistics();
+            if (mostCommonGenre == null) {
+                return getDefaultRecommendations();
+            }
 
-            int minReleaseYear = releaseYearStats.getMin();
-            int maxReleaseYear = releaseYearStats.getMax();
-
-            String sql = "SELECT * FROM Movies WHERE rating > ? AND releaseYear BETWEEN ? AND ? " +
-                    "AND (genre LIKE ? OR genre LIKE ?) " +
-                    "LIMIT 6";
+            String sql = "SELECT * FROM Movies WHERE genre LIKE ? ORDER BY RANDOM() LIMIT 6";
 
             try (Connection conn = DbFunctions.connect();
                     PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-                pstmt.setDouble(1, averageRating);
-                pstmt.setInt(2, minReleaseYear);
-                pstmt.setInt(3, maxReleaseYear);
-                pstmt.setString(4, "%" + mostCommonGenres.get(0) + "%");
-                pstmt.setString(5, mostCommonGenres.size() > 1 ? "%" + mostCommonGenres.get(1) + "%"
-                        : "%" + mostCommonGenres.get(0) + "%");
+                pstmt.setString(1, "%" + mostCommonGenre + "%");
 
                 ResultSet rs = pstmt.executeQuery();
                 while (rs.next()) {
@@ -62,10 +46,8 @@ public class RecommendationService {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            if (recommendedMovies.isEmpty())
-                return getDefaultRecommendations();
-            else
-                return recommendedMovies;
+
+            return recommendedMovies.isEmpty() ? getDefaultRecommendations() : recommendedMovies;
         }
     }
 

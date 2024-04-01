@@ -1,6 +1,7 @@
 package Utilities;
 
 import GUI.MovieUI;
+import GUI.Dashboard.Dashboard;
 import Models.Movie;
 import Models.User;
 

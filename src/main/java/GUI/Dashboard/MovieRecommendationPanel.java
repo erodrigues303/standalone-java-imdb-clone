@@ -23,7 +23,7 @@ public class MovieRecommendationPanel extends JPanel {
     private void initialize() {
         setLayout(new BorderLayout());
 
-        JButton recommendationButton = new JButton("Recommended Movies");
+        JButton recommendationButton = new JButton("Recommendations from Friends");
         recommendationButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 displayRecommendedMovies();
@@ -67,7 +67,7 @@ public class MovieRecommendationPanel extends JPanel {
         JScrollPane scrollPane = new JScrollPane(movieCardsPanel);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
-        JFrame movieListFrame = new JFrame("Recommended Movies");
+        JFrame movieListFrame = new JFrame("Recommendations from Friends");
         movieListFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         movieListFrame.add(scrollPane); // Add the scroll pane instead of the movie cards panel
         movieListFrame.pack();

@@ -56,20 +56,8 @@ public class LoginUI extends JFrame {
         }
     }
 
-    private boolean authenticateUser(String username, String password) {
-        try (Connection conn = DbFunctions.connect()) {
-            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE username = ? AND password = ?");
-            stmt.setString(1, username);
-            stmt.setString(2, password);
-            ResultSet rs = stmt.executeQuery();
-            return rs.next();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
     private void showRegistrationForm() {
+
         JDialog registrationDialog = new JDialog(this, "Register", true);
         registrationDialog.setLayout(new GridLayout(3, 2));
         registrationDialog.setSize(300, 150);
@@ -98,7 +86,7 @@ public class LoginUI extends JFrame {
             JOptionPane.showMessageDialog(this, "Registration successful");
             dialog.dispose(); // Close the registration dialog after successful registration
         } else {
-            JOptionPane.showMessageDialog(this, "Registration failed");
+            JOptionPane.showMessageDialog(this, "Registration failed, Username already taken");
         }
 
     }

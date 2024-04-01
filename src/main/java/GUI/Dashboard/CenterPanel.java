@@ -8,6 +8,7 @@ import java.awt.*;
 import java.util.List;
 
 public class CenterPanel extends JPanel {
+    private static CenterPanel instance;
     private final RecommendationService recommendationService;
     private final User user;
     private final Dashboard dashboard;
@@ -18,23 +19,25 @@ public class CenterPanel extends JPanel {
         this.dashboard = dashboard;
         setLayout(new GridLayout(2, 3, 10, 10)); // 2 rows, 3 cols, horizontal and vertical gaps
         setupCenterPanel();
+        instance = this;
+    }
+
+    public static CenterPanel getInstance() {
+        return instance;
     }
 
     private void setupCenterPanel() {
+        List<Movie> recommendedMovies;
         if (user.getRecentlyViewed().isEmpty()) {
-            setLayout(new FlowLayout(FlowLayout.CENTER, 50, 200)); // Small horizontal gap, no vertical gap
-            JLabel welcomeLabel = new JLabel(
-                    "Search movies to start getting recommendations, " + user.getUsername() + "!");
-            welcomeLabel.setFont(new Font("Arial", Font.BOLD, 20));
-            add(welcomeLabel);
+            recommendedMovies = recommendationService.getDefaultRecommendations();
         } else {
-            List<Movie> recommendedMovies = recommendationService.getRecommendations(user);
-
-            for (Movie movie : recommendedMovies) {
-                JPanel card = Utilities.MovieUtils.createMovieCard(movie, user);
-                add(card);
-            }
+            recommendedMovies = recommendationService.getRecommendations(user);
         }
+        for (Movie movie : recommendedMovies) {
+            JPanel card = Utilities.MovieUtils.createMovieCard(movie, user);
+            add(card);
+        }
+
     }
 
     public void refreshRecommendations() {

@@ -6,23 +6,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserService {
-MovieService movieService = new MovieService();
-ReviewService reviewService = new ReviewService();
-CommentService commentService = new CommentService();
-RecentlyViewdService recentlyViewdService = new RecentlyViewdService();
-
+    MovieService movieService = new MovieService();
+    ReviewService reviewService = new ReviewService();
+    CommentService commentService = new CommentService();
+    RecentlyViewdService recentlyViewdService = new RecentlyViewdService();
 
     // Method to create a new User
     public boolean createUser(User user) {
         String sql = "INSERT INTO Users (username, password) VALUES (?, ?)";
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, user.getUsername());
             pstmt.setString(2, user.getPassword());
             int affectedRows = pstmt.executeUpdate();
             return affectedRows > 0;
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("Registration failed, user already exists");
+            // e.printStackTrace();
             return false;
         }
     }
@@ -33,10 +33,13 @@ RecentlyViewdService recentlyViewdService = new RecentlyViewdService();
             stmt.setString(1, username);
             stmt.setString(2, password);
             ResultSet rs = stmt.executeQuery();
-            if(rs != null) return resultSetToUser(rs);
-            else return null;
+            if (rs != null)
+                return resultSetToUser(rs);
+            else
+                return null;
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("Invalid credentials");
+            // e.printStackTrace();
             return null;
         }
     }
@@ -45,7 +48,7 @@ RecentlyViewdService recentlyViewdService = new RecentlyViewdService();
     public User getUserByUsername(String username) {
         String sql = "SELECT * FROM Users WHERE username = ?";
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, username);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
@@ -57,11 +60,10 @@ RecentlyViewdService recentlyViewdService = new RecentlyViewdService();
         return null; // User not found
     }
 
-
     public boolean deleteUser(User user) {
         String sql = "DELETE FROM Users WHERE user_id = ?";
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, user.getUserId());
 
             int affectedRows = pstmt.executeUpdate();
@@ -76,7 +78,7 @@ RecentlyViewdService recentlyViewdService = new RecentlyViewdService();
         List<Movie> watchlist = new ArrayList<>();
         String sql = "SELECT m.* FROM Watchlist w JOIN Movies m ON w.movie_id = m.movie_id WHERE w.user_id = ?";
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, userId);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
@@ -90,11 +92,10 @@ RecentlyViewdService recentlyViewdService = new RecentlyViewdService();
         return watchlist;
     }
 
-
     public boolean addToWatchlist(int userId, int movieId) {
         String sql = "INSERT INTO Watchlist (user_id, movie_id) VALUES (?, ?)";
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, userId);
             pstmt.setInt(2, movieId);
             return pstmt.executeUpdate() > 0;
@@ -104,11 +105,10 @@ RecentlyViewdService recentlyViewdService = new RecentlyViewdService();
         }
     }
 
-
     public boolean removeFromWatchlist(int userId, int movieId) {
         String sql = "DELETE FROM Watchlist WHERE user_id = ? AND movie_id = ?";
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, userId);
             pstmt.setInt(2, movieId);
             return pstmt.executeUpdate() > 0;
@@ -122,7 +122,7 @@ RecentlyViewdService recentlyViewdService = new RecentlyViewdService();
         List<User> friendsList = new ArrayList<>();
         String sql = "SELECT u.* FROM Friends f JOIN Users u ON f.friend_id = u.user_id WHERE f.user_id = ?";
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, userId);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
@@ -135,11 +135,10 @@ RecentlyViewdService recentlyViewdService = new RecentlyViewdService();
         return friendsList;
     }
 
-
     public boolean addFriend(int userId, int friendId) {
         String sql = "INSERT INTO Friends (user_id, friend_id) VALUES (?, ?)";
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, userId);
             pstmt.setInt(2, friendId);
             return pstmt.executeUpdate() > 0;
@@ -152,7 +151,7 @@ RecentlyViewdService recentlyViewdService = new RecentlyViewdService();
     public boolean removeFriend(int userId, int friendId) {
         String sql = "DELETE FROM Friends WHERE user_id = ? AND friend_id = ?";
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, userId);
             pstmt.setInt(2, friendId);
             return pstmt.executeUpdate() > 0;
@@ -162,12 +161,10 @@ RecentlyViewdService recentlyViewdService = new RecentlyViewdService();
         }
     }
 
-
-    private User resultSetToUser(ResultSet rs) throws SQLException{
+    private User resultSetToUser(ResultSet rs) throws SQLException {
         User user = new User(
                 rs.getString("username"),
-                rs.getString("password")
-        );
+                rs.getString("password"));
         int userId = rs.getInt("user_id");
         user.setUserId(userId);
         user.setWatchlist(getWatchlistByUserId(userId));
@@ -178,26 +175,27 @@ RecentlyViewdService recentlyViewdService = new RecentlyViewdService();
         return user;
     }
 
-    private User resultSetToFriend(ResultSet rs) throws SQLException{
+    private User resultSetToFriend(ResultSet rs) throws SQLException {
         User user = new User(rs.getString("username"));
         int userId = rs.getInt("user_id");
         user.setUserId(userId);
         user.setWatchlist(getWatchlistByUserId(userId));
         user.setRecentlyViewed(recentlyViewdService.getRecentlyViewedById(userId));
 
-//        optional
-//        user.setReviews(reviewService.getReviewsByUserId(userId));
-//        user.setComments(commentService.getCommentsByUserId(userId));
-//        user.setFriendsList(getFriendsListByUserId(userId));
+        // optional
+        // user.setReviews(reviewService.getReviewsByUserId(userId));
+        // user.setComments(commentService.getCommentsByUserId(userId));
+        // user.setFriendsList(getFriendsListByUserId(userId));
 
         return user;
     }
+
     public static User getUserById(int userID) {
         String sql = "SELECT * FROM Users WHERE user_id = ?";
         String username = null;
         String password = null;
         try (Connection conn = DbFunctions.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, userID);
             ResultSet rs = pstmt.executeQuery();
             // Assuming a method that converts a ResultSet row to a Review object
@@ -206,6 +204,6 @@ RecentlyViewdService recentlyViewdService = new RecentlyViewdService();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return new User(username,password);
+        return new User(username, password);
     }
 }

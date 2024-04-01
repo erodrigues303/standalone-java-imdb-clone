@@ -1,5 +1,6 @@
 package GUI;
 
+import GUI.Dashboard.CenterPanel;
 import GUI.Reviews.LeaveReviewUI;
 import GUI.Reviews.ReviewsUI;
 import Models.Movie;
@@ -9,6 +10,8 @@ import Services.FriendService;
 import Services.RecommendToFriendService;
 import Services.UserService;
 import Utilities.MovieUtils;
+import Utilities.RefreshRecommendationsCallback;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
@@ -35,6 +38,7 @@ public class MovieUI extends JFrame {
     private JButton leaveReviewButton;
     private JButton rateButton;
     private JButton recommendButton;
+    int count = 0;
 
     private MovieUI(Movie movie, User user) {
         this.user = user;
@@ -188,6 +192,9 @@ public class MovieUI extends JFrame {
         MovieUtils.loadImage(movie.getCoverImageUrl(), coverImageLabel);
         descriptionLabel.setText("<html>Description: " + movie.getDescription() + "</html>");
         genreLabel.setText(movie.getGenre());
+        if (count++ % 4 == 0) {
+            CenterPanel.getInstance().refreshRecommendations();
+        }
     }
 
     public void updateMovieDetails(Movie movie) {

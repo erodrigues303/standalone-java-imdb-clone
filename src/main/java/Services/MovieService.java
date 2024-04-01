@@ -47,6 +47,8 @@ public class MovieService {
             parameters.add(rating);
         }
 
+        sql += " LIMIT 20";
+
         try (Connection conn = DbFunctions.connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
