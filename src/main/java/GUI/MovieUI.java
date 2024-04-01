@@ -40,7 +40,7 @@ public class MovieUI extends JFrame {
     private JButton recommendButton;
     int count = 0;
 
-    private MovieUI(Movie movie, User user) {
+    public MovieUI(Movie movie, User user) {
         this.user = user;
         this.movie = movie;
 
@@ -53,13 +53,13 @@ public class MovieUI extends JFrame {
         populateMovieDetails();
     }
 
-    public static MovieUI getInstance(Movie movie, User user) {
-        if (instance == null) {
-            instance = new MovieUI(movie, user);
-        }
+    // public static MovieUI getInstance(Movie movie, User user) {
+    // if (instance == null) {
+    // instance = new MovieUI(movie, user);
+    // }
 
-        return instance;
-    }
+    // return instance;
+    // }
 
     private void initComponents() {
         configureMainPanel();
@@ -107,7 +107,7 @@ public class MovieUI extends JFrame {
         rateButton = createButton("Read Reviews", e -> openReviewsUI(movie, user));
         buttonPanel.add(rateButton);
 
-        recommendButton = createButton("Recommend to Friend", e -> showFriendWindow());
+        recommendButton = createButton("Recommend to Friend", e -> openFriendsList());
         buttonPanel.add(recommendButton);
 
         add(buttonPanel, BorderLayout.SOUTH);
@@ -119,70 +119,49 @@ public class MovieUI extends JFrame {
         return button;
     }
 
-    private void showFriendWindow() {
-        if (friendWindow == null) {
-            friendWindow = new JFrame("Friends: ");
-            friendWindow.setSize(200, 500);
-            friendWindow.setLocationRelativeTo(null);
-        }
-        if (updateFriends(user) == 0) {
-            JOptionPane.showMessageDialog(friendWindow,
+    private void openFriendsList() {
+        java.util.List<Integer> friendIDs = FriendService.getFriends(user.getUserId());
+
+        // Create a modal JDialog
+        JDialog friendsDialog = new JDialog((Frame) SwingUtilities.getWindowAncestor(this), "Choose Friend", true);
+
+        // Check if the friends list is empty
+        if (friendIDs.isEmpty()) {
+            JOptionPane.showMessageDialog(friendsDialog,
                     "Friends list is empty. Please add friends to recommend them movies.", "Error",
                     JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        JLabel titleLabel = new JLabel("Friends: ");
-        titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 16));
-        friendWindow.add(titleLabel, BorderLayout.NORTH);
+        // Create a panel with GridLayout to hold the buttons
+        JPanel panel = new JPanel(new GridLayout(friendIDs.size(), 1, 5, 5)); // with gaps
+        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // some padding
 
-        friendsList = new JTextArea();
-        friendsList.setEditable(false);
-        JScrollPane scrollPane = new JScrollPane(friendsList);
-        friendWindow.add(scrollPane, BorderLayout.CENTER);
-        friendWindow.setVisible(true);
-
-    }
-
-    public int updateFriends(User user) {
-        ArrayList<Integer> friendIds = (ArrayList<Integer>) FriendService.getFriends(user.getUserId());
-        if (refreshFriendWindow(friendIds) == 0)
-            return 0;
-        else
-            return 1;
-    }
-
-    private int refreshFriendWindow(ArrayList<Integer> friendIds) {
-        // Ensure the friend window is initialized here (if not part of
-        // showFriendWindow)
-        if (friendIds.isEmpty()) {
-
-            return 0;
-        }
-
-        JPanel friendPanel = new JPanel(new GridLayout(friendIds.size(), 1));
-
-        for (int friendId : friendIds) {
-            User friend = UserService.getUserById(friendId);
+        // Populate the panel with friend buttons
+        for (Integer friendID : friendIDs) {
+            User friend = UserService.getUserById(friendID);
             if (friend != null) {
                 JButton friendButton = new JButton(friend.getUsername());
-                friendButton.addActionListener(
-                        e -> RecommendToFriendService.sendRecommendation(user, friend.getUsername(), movie));
-                friendPanel.add(friendButton);
+                friendButton.addActionListener(e -> {
+                    // Call the method to handle the recommendation
+                    RecommendToFriendService.sendRecommendation(user, friend.getUsername(), movie);
+                    JOptionPane.showMessageDialog(friendsDialog,
+                            "Recommendation sent to " + friend.getUsername(), "Success",
+                            JOptionPane.INFORMATION_MESSAGE);
+                    friendsDialog.dispose(); // Close the dialog
+                });
+                panel.add(friendButton); // Add the button to the panel
             }
         }
 
-        replaceFriendPanel(friendPanel);
-        return 1;
-    }
+        // Add a scroll pane in case the number of friends exceeds the dialog size
+        JScrollPane scrollPane = new JScrollPane(panel);
+        friendsDialog.setContentPane(scrollPane);
 
-    private void replaceFriendPanel(JPanel newPanel) {
-        friendWindow.getContentPane().removeAll();
-        JScrollPane scrollPane = new JScrollPane(newPanel);
-        friendWindow.getContentPane().add(scrollPane, BorderLayout.CENTER);
-        friendWindow.revalidate();
-        friendWindow.repaint();
+        // Set dialog size and location
+        friendsDialog.pack(); // Pack the dialog to its contents' preferred size
+        friendsDialog.setLocationRelativeTo(SwingUtilities.getWindowAncestor(this));
+        friendsDialog.setVisible(true); // Show the dialog
     }
 
     private void populateMovieDetails() {

@@ -14,6 +14,8 @@ import java.net.URL;
 
 public class MovieUtils {
 
+    private static MovieUI currentInstance;
+
     // Static method for loading images
     public static void loadImage(String imageUrl, JLabel imageLabel) {
         SwingUtilities.invokeLater(() -> {
@@ -31,12 +33,14 @@ public class MovieUtils {
 
     // Static method to create and open MovieUI
     public static void openMovieUI(Movie movie, User user) {
-        MovieUI movieUI = MovieUI.getInstance(movie, user);
-        movieUI.updateMovieDetails(movie);
-        movieUI.setVisible(true);
+        if (currentInstance != null) {
+            currentInstance.dispose(); // Close the current MovieUI
+        }
+
+        currentInstance = new MovieUI(movie, user);
+        currentInstance.updateMovieDetails(movie);
+        currentInstance.setVisible(true);
         user.addRecentlyViewed(movie);
-        // If Dashboard is a singleton or has a static way to access the current
-        // instance, you can update it here
         GUI.Dashboard.Dashboard.getInstance().getRecentlyViewedPanel().populateRecentlyViewedMovies();
     }
 
