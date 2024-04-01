@@ -1,14 +1,16 @@
 package Services;
 
+import Models.Movie;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import Services.RecentlyViewdService;
 
 public class FriendService {
-
     // Method to add a friend for a user
     public static boolean addFriend(int userId, int friendId) {
         String sql = "INSERT INTO Friends (user_id, friend_id) VALUES (?, ?)";
@@ -25,7 +27,7 @@ public class FriendService {
     }
 
     // Method to remove a friend for a user
-    public boolean removeFriend(int userId, int friendId) {
+    public static boolean removeFriend(int userId, int friendId) {
         String sql = "DELETE FROM Friends WHERE user_id = ? AND friend_id = ?";
         try (Connection conn = DbFunctions.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -55,7 +57,7 @@ public class FriendService {
         }
         return friends;
     }
-    public boolean sendFriendRequest(int senderId, int receiverId) {
+    public static boolean sendFriendRequest(int senderId, int receiverId) {
         String sql = "INSERT INTO FriendRequests (sender_id, receiver_id, status) VALUES (?, ?, ?)";
         try (Connection conn = DbFunctions.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -69,6 +71,20 @@ public class FriendService {
             return false;
         }
     }
+    public static void removeFriendRequest(int senderUserId, int receiverUserId) {
+        String sql = "DELETE FROM FriendRequests WHERE sender_id = ? AND receiver_id = ?";
+
+        try (Connection conn = DbFunctions.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, senderUserId);
+            pstmt.setInt(2, receiverUserId);
+
+            // Execute the SQL statement to remove the friend request
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static List<Integer> getReceivedFriendRequests(int userId) {
         List<Integer> requestIds = new ArrayList<>();
@@ -80,6 +96,22 @@ public class FriendService {
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 requestIds.add(rs.getInt("request_id"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return requestIds;
+    }
+    public static List<Integer> getReceivedFriendRequestsFriendIds(int userId) {
+        List<Integer> requestIds = new ArrayList<>();
+        String sql = "SELECT sender_id FROM FriendRequests WHERE receiver_id = ? AND status = ?";
+        try (Connection conn = DbFunctions.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, userId);
+            pstmt.setString(2, "PENDING");
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                requestIds.add(rs.getInt("sender_id"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -162,5 +194,4 @@ public class FriendService {
         }
         return senderID;
     }
-
 }

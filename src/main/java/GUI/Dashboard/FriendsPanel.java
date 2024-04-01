@@ -60,7 +60,7 @@ public class FriendsPanel extends JPanel {
                 String username = usernameField.getText();
                 int friendId = getUserIdByUsername(username);
                 if (friendId != -1) {
-                    boolean added = friendsService.sendFriendRequest(user.getUserId(), friendId);
+                    boolean added = FriendService.sendFriendRequest(user.getUserId(), friendId);
                     if (added) {
                         JOptionPane.showMessageDialog(null, "Friend request sent successfully.");
                         updateFriendsList();
@@ -79,10 +79,10 @@ public class FriendsPanel extends JPanel {
                 String username = usernameField.getText();
                 int friendId = getUserIdByUsername(username);
                 if (friendId != -1) {
-                    boolean removed = friendsService.removeFriend(user.getUserId(), friendId);
+                    boolean removed = FriendService.removeFriend(user.getUserId(), friendId);
                     if (removed) {
                         // Remove the friend from the other person's friend list
-                        friendsService.removeFriend(friendId, user.getUserId());
+                        FriendService.removeFriend(friendId, user.getUserId());
                         updateFriendsList();
                         JOptionPane.showMessageDialog(null, "Friend removed successfully.");
                     } else {
@@ -112,7 +112,7 @@ public class FriendsPanel extends JPanel {
     }
 
     public void updateFriendsList() {
-        List<Integer> friendIds = friendsService.getFriends(user.getUserId());
+        List<Integer> friendIds = FriendService.getFriends(user.getUserId());
         StringBuilder sb = new StringBuilder();
         for (int friendId : friendIds) {
             // Fetch friend's name based on their ID

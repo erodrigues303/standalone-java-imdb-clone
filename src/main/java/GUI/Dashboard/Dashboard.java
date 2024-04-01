@@ -2,14 +2,14 @@ package GUI.Dashboard;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
 import GUI.BrowseMovieUI;
 import Models.Movie;
 import Models.User;
-import Services.MovieService;
-import Services.RecommendationService;
-import Services.FriendService;
+import Services.*;
 
 public class Dashboard extends JFrame {
     private static Dashboard instance;
@@ -95,4 +95,6 @@ public class Dashboard extends JFrame {
     public RecentlyViewedPanel getRecentlyViewedPanel() {
         return recentlyViewedPanel;
     }
+
+
 }

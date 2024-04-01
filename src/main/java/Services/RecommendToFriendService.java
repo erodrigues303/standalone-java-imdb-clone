@@ -24,7 +24,7 @@ public class RecommendToFriendService {
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                Movie movie=resultSetToMovie(rs);
+                Movie movie = resultSetToMovie(rs);
                 if (movie != null) {
                     recommendedMovies.add(movie);
                 }
@@ -34,6 +34,7 @@ public class RecommendToFriendService {
         }
         return recommendedMovies;
     }
+
     public static List<String> getRecommendationsByMovie(String movieName) {
         List<String> recommenders = new ArrayList<>();
         String sql = "SELECT DISTINCT user_name FROM Movie_recommendation WHERE movie_name = ?";
@@ -67,6 +68,26 @@ public class RecommendToFriendService {
         movie.setId(rs.getInt("movie_id"));
         return movie;
     }
+
+    public static void recommendToFriend(User recSender,User recReciever,String movieTitle){ String sql = "INSERT INTO Movie_recommendation (user_name, friend_name, movie_name) VALUES (?, ?, ?)";
+    try(
+    Connection conn = DbFunctions.connect();
+    PreparedStatement pstmt = conn.prepareStatement(sql))
+
+    {
+        pstmt.setString(1, recSender.getUsername());
+        pstmt.setString(2, recReciever.getUsername());
+        pstmt.setString(3, movieTitle);
+
+        // Execute the SQL statement
+        pstmt.executeUpdate();
+    } catch(
+    SQLException ex)
+
+    {
+        throw new RuntimeException(ex);
+    }
+}
 }
 
 
