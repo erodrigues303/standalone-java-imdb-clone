@@ -16,17 +16,19 @@ public class ReviewsUI extends JFrame {
     private Movie movie;
     private User user;
     private JPanel reviewsPanel;
-    private ReviewService reviewService = new ReviewService();
+    private int likeClickCount = 0;
+    private int dislikeClickCount = 0;
 
     public ReviewsUI(Movie movie, User user) {
         this.movie = movie;
         this.user = user;
-
         setTitle("Reviews for " + movie.getTitle());
         setSize(700, 300);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         reviewsPanel = new JPanel();
         reviewsPanel.setLayout(new BoxLayout(reviewsPanel, BoxLayout.Y_AXIS));
+        likeClickCount = 0;
+        dislikeClickCount = 0;
         displayReviews(movie.getMovieId());
         JScrollPane scrollPane = new JScrollPane(reviewsPanel);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -35,14 +37,9 @@ public class ReviewsUI extends JFrame {
 
     private void displayReviews(int movieId) {
         reviewsPanel.removeAll();
+        ReviewService reviewService = new ReviewService();
         try {
             List<Review> reviews = reviewService.getReviewsByMovieId(movieId);
-            if (reviews.isEmpty()) {
-                JOptionPane.showMessageDialog(reviewsPanel,
-                        "Friends list is empty. Please add friends to see what they've watched.", "Error",
-                        JOptionPane.ERROR_MESSAGE);
-                return;
-            }
             for (Review review : reviews) {
                 JPanel reviewPanel = new JPanel();
                 reviewPanel.setLayout(new BorderLayout());
@@ -58,15 +55,25 @@ public class ReviewsUI extends JFrame {
                 likeButton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        review.addLikes();
+                        if (likeClickCount % 2 == 0) {
+                            review.addLikes();
+                        } else {
+                            review.subtractLikes();
+                        }
                         updateReviewsPanel(movie);
+                        likeClickCount ++;
                     }
                 });
                 dislikeButton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        review.addDislikes();
+                        if (dislikeClickCount % 2 == 0){
+                            review.addDislikes();
+                        } else {
+                            review.subtractDislikes();
+                        }
                         updateReviewsPanel(movie);
+                        dislikeClickCount++;
                     }
                 });
                 openThreadButton.addActionListener(new ActionListener() {
