@@ -121,6 +121,9 @@ public class FriendsPanel extends JPanel {
                 boolean removed = friendsService.removeFriend(user.getUserId(), friendId);
                 if (removed) {
                     user.removeFriend(friendId); // Assuming this method updates the user's local friend list.
+                    User friend=userService.getUserByUsername(UserService.getUserById(friendId).getUsername());
+                    friend.removeFriend(user.getUserId());
+                    friendsService.removeFriend(friendId,user.getUserId());
                     updateFriendsList();
                     JOptionPane.showMessageDialog(this, "Friend removed successfully.");
                 } else {
