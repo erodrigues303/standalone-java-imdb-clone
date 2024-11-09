@@ -1,4 +1,3 @@
-# 2311
 Cinemax System
 The Cinemax System is a desktop Java application designed to provide a comprehensive platform for movie enthusiasts. It offers a rich database of films ranging from classics to the latest releases, integrated with an interactive graphical user interface (GUI) and a robust backend database. Cinemax allows users to explore detailed movie information, create ratings and reviews, and offers advanced search capabilities for personalized movie discovery experiences.
 
